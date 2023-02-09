@@ -8,22 +8,28 @@
         <h2>Suas páginas</h2>
     </header>
 
+    <a href="{{url('/admin/addpage')}}" class="link_add_page">Adicionar página</a>
+
     <table>
         <thead>
             <tr>
                 <th>Título</th>
-                <th width="20">Ações</th>
+                <th class="th_actions">Ações <i class="fa-solid fa-angle-down"></i></th>
             </tr>
         </thead>
         <tbody>
         @foreach($pages as $page)
             <tr>
-                <td>{{$page->op_title}} ({{$page->slug}})</td>
-                <td>
+                <td>{{$page->op_title}} ({{$page->slug}})
+                    <div class="links_td_page">
+                        <a href="{{url('/admin/editpage/'.$page->id)}}" class="link_edit_page">Editar</a>
+                        <a href="{{url('/admin/delpage/'.$page->id)}}" class="link_delete_page">Excluir</a>
+                    </div>
+                    {{-- <i class="fa-solid fa-ellipsis" id="icon_actions"></i> --}}
+                </td>
+                <td class="td_actions">
                     <a href="{{url('/'.$page->slug)}}" target="_blank">Ver página</a>
                     <a href="{{url('/admin/'.$page->slug.'/links')}}">Links</a>
-                    <a href="{{url('/admin/'.$page->slug.'/design')}}">Aparência</a>
-                    <a href="{{url('/admin/'.$page->slug.'/stats')}}">Estatísticas</a>
                 </td>
             </tr>
         @endforeach

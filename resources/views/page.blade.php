@@ -24,6 +24,7 @@
         .main .area_profile_image .profile_img {
             width: 150px;
             height: 150px;
+            border-radius: 50%;
         }
         .main .area_links {
             width: 300px;

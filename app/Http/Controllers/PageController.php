@@ -20,7 +20,7 @@ class PageController extends Controller
 
             switch($page->op_bg_type) {
                 case 'image':
-                    $bg = "url('".url('media/uploads').'/'.$page->op_bg_value."')";
+                    $bg = "url(".url('media/uploads').'/'.$page->op_bg_value.")";
                 break;
                 case 'color':
                     $colors = explode(',', $page->op_bg_value);
@@ -46,7 +46,7 @@ class PageController extends Controller
 
             return view('page', [
                 'font_color' => $page->op_font_color,
-                'profile_image' => url('media/uploads').'/'.$page->op_profile_image,
+                'profile_image' => url('media/uploads/profile_img').'/'.$page->op_profile_image,
                 'title' => $page->op_title,
                 'description' => $page->op_description,
                 'bg' => $bg,

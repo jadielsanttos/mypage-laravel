@@ -39,8 +39,24 @@ nav i {
     padding: 10px;
     border: 1px solid #ccc;
 }
+.link_add_page {
+    width: 150px;
+    text-decoration: none;
+    margin: 10px 0 10px 10px;
+    padding: 10px;
+    background-color: #28C2FF;
+    color: #fff;
+    border-radius: 10px;
+}
 table {
     padding: 10px;
+}
+table .th_actions {
+    width: 120px;
+    cursor: pointer;
+}
+table .th_actions:hover {
+    background-color: #ddd;
 }
 table th {
     text-align: left;
@@ -50,17 +66,46 @@ table th {
 }
 table td {
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+table .links_td_page {
+    float: right;
+}
+table .links_td_page a {
+    display: inline-block;
+}
+table .links_td_page .link_edit_page {
+    background-color: rgb(31, 0, 170);
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+}
+table .links_td_page .link_delete_page {
+    background-color: rgb(216, 0, 0);
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+}
+table td i.fa-ellipsis {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
 }
 table a {
     display: block;
     color: #000;
     text-decoration: none;
     margin-bottom: 5px;
+    padding: 5px 10px;
+    transition: .3s;
+}
+table a:hover {
+    background-color: #eee;
+    border-radius: 10px;
 }
 
-/*session page links*/
-
+/* session page links */
 .pre_header {
     background-color: #ddd;
     padding: 10px;
@@ -157,8 +202,7 @@ table a {
     margin: 20px;
 }
 
-/*session editar link*/
-
+/* session editar link */
 h3 {
     margin: 15px 0 10px 10px;
 }
@@ -188,6 +232,15 @@ form input[type="submit"] {
     cursor: pointer;
     background-color: #28C2FF;
     color: #fff;
+}
+
+/* session add page */
+.form_add_page {
+    width: 100%;
+    max-width: 600px;
+}
+.form_add_page input {
+    margin-bottom: 10px;
 }
 
 

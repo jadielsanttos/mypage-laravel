@@ -308,6 +308,31 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
+    public function addPage() {
+        $user = Auth::user();
+
+        return view('admin.page_addpage');
+    }
+
+    public function addPageAction(Request $request) {
+        $user = Auth::user();
+
+        $fields = $request->validate([
+            'name_page' => ['required'],
+            'title_page' => ['required'],
+            'desc_page' => ['required']
+        ]);
+
+        $newPage = new Page();
+        $newPage->id_user = $user->id;
+        $newPage->slug = strtolower($fields['name_page']);
+        $newPage->op_title = $fields['title_page'];
+        $newPage->op_description = $fields['desc_page'];
+        $newPage->save();
+
+        return redirect('/admin');
+    }
+
     public function pageDesign($slug) {
         $user = Auth::user();
         $page = Page::where('id_user', $user->id)
