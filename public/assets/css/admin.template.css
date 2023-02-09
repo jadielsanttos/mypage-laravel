@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #F5F5F5;
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    background-color: #FFF;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+nav i {
+    color: #000;
+    font-size: 30px;
+}
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-left: 80px;
+}
+.header {
+    background-color: #FFF;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+table {
+    padding: 10px;
+}
+table th {
+    text-align: left;
+    background-color: #ccc;
+    border-radius: 10px;
+    padding: 10px;
+}
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+table a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+/*session page links*/
+
+.pre_header {
+    background-color: #ddd;
+    padding: 10px;
+}
+.area_total {
+    flex: 1;
+    display: flex;
+}
+.area_total h2 {
+    margin: 10px 0 0 10px;
+}
+.area_total .left_side {
+    flex: 1;
+    border-right: 1px solid #ccc;
+}
+.area_total .left_side a.big_button {
+    display: block;
+    text-decoration: none;
+    background-color: #ddd;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    font-size: 18px;
+    transition: .3s;
+}
+.area_total .left_side a.big_button:hover {
+    background-color: #ccc;
+}
+.area_total .left_side #links {
+    list-style: none;
+    margin: 10px;
+}
+.area_total .left_side .link_item_list {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px #ccc;
+}
+.area_total .left_side .link_item_list .link_item_order {
+    cursor: move;
+    margin-right: 10px;
+}
+.area_total .left_side .link_item_list .link_item_info {
+    flex: 1;
+}
+.area_total .left_side .link_item_list .link_item_buttons a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    background-color: #444;
+    border-radius: 10px;
+    transition: .3s;
+}
+.area_total .left_side .link_item_list .link_item_buttons a:hover {
+    background-color: #000;
+}
+.area_total .left_side header {
+    background-color: #FFF;
+    border: 1px solid #ccc;
+}
+.area_total .left_side header ul {
+    display: flex;
+    list-style: none;
+}
+.area_total .left_side header ul li {
+    border-bottom: 2px solid #FFF;
+}
+.area_total .left_side header ul li:hover {
+    border-bottom: 2px solid #000;
+}
+.area_total .left_side header ul li.active {
+    border-bottom: 2px solid #000;
+}
+.area_total .left_side header ul li a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding: 15px;
+}
+.area_total .right_side {
+    margin: 0 auto;
+}
+.area_total .right_side iframe {
+    width: 330px;
+    height: 550px;
+    border: 5px solid #000;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+/*session editar link*/
+
+h3 {
+    margin: 15px 0 10px 10px;
+}
+
+form {
+    margin: 10px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input,
+form select {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: 0;
+}
+form input[type="submit"] {
+    width: 100px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #28C2FF;
+    color: #fff;
+}
+
+
+
