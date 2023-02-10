@@ -243,5 +243,14 @@ form input[type="submit"] {
     margin-bottom: 10px;
 }
 
+/* session edit page */
+.form_edit_page {
+    width: 100%;
+    max-width: 600px;
+}
+.form_edit_page input {
+    margin-bottom: 10px;
+}
+
 
 

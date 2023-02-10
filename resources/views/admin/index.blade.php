@@ -22,8 +22,8 @@
             <tr>
                 <td>{{$page->op_title}} ({{$page->slug}})
                     <div class="links_td_page">
-                        <a href="{{url('/admin/editpage/'.$page->id)}}" class="link_edit_page">Editar</a>
-                        <a href="{{url('/admin/delpage/'.$page->id)}}" class="link_delete_page">Excluir</a>
+                        <a href="{{url('/admin/'.$page->slug.'/editpage/'.$page->id)}}" class="link_edit_page">Editar</a>
+                        <a href="{{url('/admin/'.$page->slug.'/delpage/'.$page->id)}}" class="link_delete_page" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
                     </div>
                     {{-- <i class="fa-solid fa-ellipsis" id="icon_actions"></i> --}}
                 </td>

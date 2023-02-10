@@ -20,6 +20,9 @@ Route::prefix('/admin')->group(function(){
 
     Route::get('/addpage', [AdminController::class, 'addPage']);
     Route::post('/addpage', [AdminController::class, 'addPageAction']);
+    Route::get('/{slug}/editpage/{pageid}', [AdminController::class, 'editPage']);
+    Route::post('/{slug}/editpage/{pageid}', [AdminController::class, 'editPageAction']);
+    Route::get('/{slug}/delpage/{pageid}', [AdminController::class, 'delPage']);
 
     Route::get('/{slug}/links', [AdminController::class, 'pageLinks']);
     Route::get('/{slug}/design', [AdminController::class, 'pageDesign']);
@@ -29,10 +32,8 @@ Route::prefix('/admin')->group(function(){
 
     Route::get('/{slug}/newlink', [AdminController::class, 'newlink']);
     Route::post('/{slug}/newlink', [AdminController::class, 'newLinkAction']);
-
     Route::get('/{slug}/editlink/{linkid}', [AdminController::class, 'editLink']);
     Route::post('/{slug}/editlink/{linkid}', [AdminController::class, 'editLinkAction']);
-
     Route::get('/{slug}/dellink/{linkid}', [AdminController::class, 'delLink']);
 
 });

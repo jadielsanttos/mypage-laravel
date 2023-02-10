@@ -75,7 +75,9 @@ class AdminController extends Controller
     public function index() {
         $user = Auth::user();
 
-        $pages = Page::where('id_user', $user->id)->get();
+        $pages = Page::where('id_user', $user->id)
+            ->orderBy('id', 'DESC')
+            ->get();
 
         return view('admin.index',[
             'pages' => $pages
@@ -331,6 +333,68 @@ class AdminController extends Controller
         $newPage->save();
 
         return redirect('/admin');
+    }
+
+    public function editPage($slug, $pageID) {
+        $user = Auth::user();
+        $page = Page::where('slug', $slug)
+            ->where('id', $pageID)
+            ->where('id_user', $user->id)
+            ->first();
+
+        if($page) {
+            return view('admin.page_editpage',[
+                'page' => $page
+            ]);
+        }else {
+            return redirect('/admin');
+        }
+
+    }
+
+    public function editPageAction($slug, $pageID, Request $request) {
+        $user = Auth::user();
+        $page = Page::where('slug', $slug)
+            ->where('id', $pageID)
+            ->where('id_user', $user->id)
+            ->first();
+
+        if($page) {
+            $fields = $request->validate([
+                'slug_page' => ['required'],
+                'font_color_page' => ['required', 'regex:/^[#][0-9A-F]{3,6}$/i'],
+                'bg_color_page' => ['required', 'regex:/^[#][0-9A-F]{3,6}$/i'],
+                'title_page' => ['required'],
+                'description_page' => ['required']
+            ]);
+
+            $page->slug = $fields['slug_page'];
+            $page->op_font_color = $fields['font_color_page'];
+            $page->op_bg_value = $fields['bg_color_page'];
+            $page->op_title = $fields['title_page'];
+            $page->op_description = $fields['description_page'];
+            $page->save();
+
+            return redirect('/admin/'.$page->slug.'/editpage/'.$page->id);
+        }else {
+            return redirect('/admin');
+        }
+    }
+
+    public function delPage($slug, $pageID) {
+        $user = Auth::user();
+        $page = Page::where('id_user', $user->id)
+            ->where('slug', $slug)
+            ->where('id', $pageID)
+            ->first();
+
+        if($page) {
+            $page->delete();
+            return redirect('/admin');
+        }else {
+            echo "<script>alert('Algo deu errado')</script>";
+            echo "<script>window.location.href = '/admin'</script>";
+        }
     }
 
     public function pageDesign($slug) {
