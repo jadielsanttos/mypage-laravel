@@ -16,7 +16,7 @@ class PageController extends Controller
         if($page) {
 
             // background
-            $bg = '#FFFFFF';
+            $bg = '#FFFFFF,#FFFFFF';
 
             switch($page->op_bg_type) {
                 case 'image':

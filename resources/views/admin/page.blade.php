@@ -3,10 +3,6 @@
 @section('title', 'Mylinks - '.$page->op_title.'(Links)')
 
 @section('content')
-    <div class="pre_header">
-        Página: {{$page->op_title}}
-    </div>
-
     <div class="area_total">
         <div class="left_side">
             <header>

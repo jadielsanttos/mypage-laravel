@@ -20,7 +20,7 @@
         </div>
     </nav>
 
-    <section class="container">
+    <section class="container_single">
         @yield('content')
     </section>
 

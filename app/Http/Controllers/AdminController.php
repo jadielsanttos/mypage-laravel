@@ -343,8 +343,11 @@ class AdminController extends Controller
             ->first();
 
         if($page) {
+            $colors = explode(',', $page->op_bg_value);
+
             return view('admin.page_editpage',[
-                'page' => $page
+                'page' => $page,
+                'colors' => $colors
             ]);
         }else {
             return redirect('/admin');
@@ -364,13 +367,16 @@ class AdminController extends Controller
                 'slug_page' => ['required'],
                 'font_color_page' => ['required', 'regex:/^[#][0-9A-F]{3,6}$/i'],
                 'bg_color_page' => ['required', 'regex:/^[#][0-9A-F]{3,6}$/i'],
+                'bg_color_page_2' => ['required', 'regex:/^[#][0-9A-F]{3,6}$/i'],
                 'title_page' => ['required'],
                 'description_page' => ['required']
             ]);
 
+            $bgColors = $fields['bg_color_page'].','.$fields['bg_color_page_2'];
+
             $page->slug = $fields['slug_page'];
             $page->op_font_color = $fields['font_color_page'];
-            $page->op_bg_value = $fields['bg_color_page'];
+            $page->op_bg_value = $bgColors;
             $page->op_title = $fields['title_page'];
             $page->op_description = $fields['description_page'];
             $page->save();

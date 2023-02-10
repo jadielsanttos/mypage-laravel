@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Poppins&family=Roboto&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 body {
     display: flex;
@@ -27,13 +28,14 @@ nav i {
     color: #000;
     font-size: 30px;
 }
-.container {
+.container_single {
     display: flex;
     flex: 1;
     flex-direction: column;
     min-height: 100vh;
     margin-left: 80px;
 }
+/* session home admin */
 .header {
     background-color: #FFF;
     padding: 10px;
@@ -44,30 +46,33 @@ nav i {
     text-decoration: none;
     margin: 10px 0 10px 10px;
     padding: 10px;
-    background-color: #28C2FF;
+    background-color: #21910a;
     color: #fff;
+    border: 1px solid #ccc;
     border-radius: 10px;
+    transition: .3s;
+}
+.link_add_page:hover {
+    background-color: #177405;
 }
 table {
-    padding: 10px;
+    margin: 10px;
+    border-collapse: collapse;
 }
 table .th_actions {
     width: 120px;
-    cursor: pointer;
-}
-table .th_actions:hover {
-    background-color: #ddd;
 }
 table th {
     text-align: left;
-    background-color: #ccc;
-    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
     padding: 10px;
 }
 table td {
     padding: 10px;
+    background-color: #FFF;
     border: 1px solid #ccc;
-    border-radius: 10px;
 }
 table .links_td_page {
     float: right;
@@ -76,13 +81,13 @@ table .links_td_page a {
     display: inline-block;
 }
 table .links_td_page .link_edit_page {
-    background-color: rgb(31, 0, 170);
+    background-color: #21910a;
     padding: 5px;
     color: #fff;
     border-radius: 5px;
 }
 table .links_td_page .link_delete_page {
-    background-color: rgb(216, 0, 0);
+    background-color: rgb(146, 0, 0);
     padding: 5px;
     color: #fff;
     border-radius: 5px;
@@ -99,17 +104,13 @@ table a {
     margin-bottom: 5px;
     padding: 5px 10px;
     transition: .3s;
+    border-radius: 10px;
 }
 table a:hover {
-    background-color: #eee;
-    border-radius: 10px;
+    background-color: #F5F5F5;
 }
 
 /* session page links */
-.pre_header {
-    background-color: #ddd;
-    padding: 10px;
-}
 .area_total {
     flex: 1;
     display: flex;
@@ -121,13 +122,40 @@ table a:hover {
     flex: 1;
     border-right: 1px solid #ccc;
 }
-.area_total .left_side a.big_button {
+.area_total .left_side header {
+    background-color: #FFF;
+    border: 1px solid #ccc;
+}
+.area_total .left_side header ul {
+    display: flex;
+    list-style: none;
+}
+.area_total .left_side header ul li {
+    border-bottom: 2px solid #FFF;
+}
+.area_total .left_side header ul li:hover {
+    border-bottom: 2px solid #21910a;
+}
+.area_total .left_side header ul li.active {
+    border-bottom: 2px solid #21910a;
+}
+.area_total .left_side header ul li a {
     display: block;
     text-decoration: none;
-    background-color: #ddd;
+    color: #000;
+    padding: 15px;
+}
+.area_total .left_side span {
+    float: right;
+}
+.area_total .left_side a.big_button {
+    width: 120px;
+    display: block;
+    text-decoration: none;
+    background-color: #21910a;
     border-radius: 10px;
     border: 1px solid #ccc;
-    color: #000;
+    color: #fff;
     padding: 10px;
     margin: 10px;
     text-align: center;
@@ -135,7 +163,7 @@ table a:hover {
     transition: .3s;
 }
 .area_total .left_side a.big_button:hover {
-    background-color: #ccc;
+    background-color: #177405;
 }
 .area_total .left_side #links {
     list-style: none;
@@ -160,36 +188,15 @@ table a:hover {
 .area_total .left_side .link_item_list .link_item_buttons a {
     text-decoration: none;
     color: #fff;
-    padding: 5px 10px;
-    background-color: #444;
-    border-radius: 10px;
+    padding: 5px;
+    border-radius: 5px;
     transition: .3s;
 }
-.area_total .left_side .link_item_list .link_item_buttons a:hover {
-    background-color: #000;
+.area_total .left_side .link_item_list .link_item_buttons .link_edit_link {
+    background-color: #21910a;
 }
-.area_total .left_side header {
-    background-color: #FFF;
-    border: 1px solid #ccc;
-}
-.area_total .left_side header ul {
-    display: flex;
-    list-style: none;
-}
-.area_total .left_side header ul li {
-    border-bottom: 2px solid #FFF;
-}
-.area_total .left_side header ul li:hover {
-    border-bottom: 2px solid #000;
-}
-.area_total .left_side header ul li.active {
-    border-bottom: 2px solid #000;
-}
-.area_total .left_side header ul li a {
-    display: block;
-    text-decoration: none;
-    color: #000;
-    padding: 15px;
+.area_total .left_side .link_item_list .link_item_buttons .link_delete_link {
+    background-color: rgb(146, 0, 0);
 }
 .area_total .right_side {
     margin: 0 auto;
@@ -202,20 +209,17 @@ table a:hover {
     margin: 20px;
 }
 
-/* session editar link */
+/* session edit link */
 h3 {
     margin: 15px 0 10px 10px;
 }
-
 form {
     margin: 10px;
 }
-
 form label {
     display: block;
     margin-bottom: 10px;
 }
-
 form input,
 form select {
     display: block;
@@ -225,12 +229,13 @@ form select {
     border: 1px solid #ccc;
     border-radius: 10px;
     outline: 0;
+    font-size: 17px;
 }
 form input[type="submit"] {
     width: 100px;
     font-size: 18px;
     cursor: pointer;
-    background-color: #28C2FF;
+    background-color: #21910a;
     color: #fff;
 }
 
@@ -244,12 +249,24 @@ form input[type="submit"] {
 }
 
 /* session edit page */
-.form_edit_page {
-    width: 100%;
-    max-width: 600px;
+.area_editpage {
+    flex: 1;
+    display: flex;
 }
-.form_edit_page input {
+.area_editpage .area_form_editpage {
+    flex: 1;
+    border-right: 1px solid #ccc;
+}
+.area_form_editpage .form_edit_page input {
     margin-bottom: 10px;
+    font-size: 17px;
+}
+.area_editpage .area_iframe iframe {
+    width: 330px;
+    margin: 10px;
+    height: 550px;
+    border: 5px solid #000;
+    border-radius: 20px;
 }
 
 

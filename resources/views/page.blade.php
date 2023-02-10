@@ -4,54 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <title>{{$title}}</title>
-    <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        body {
-            background: {{$bg}};
-        }
-        .main {
-            width: 300px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            color: {{$font_color}};
-        }
-        .main .area_profile_image .profile_img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-        }
-        .main .area_links {
-            width: 300px;
-        }
-        .main .area_links a {
-            display: block;
-            text-decoration: none;
-            text-align: center;
-            margin-bottom: 10px;
-            padding: 10px;
-        }
-        .main .area_links a.link_rounded {
-            border-radius: 50px;
-        }
-        .main .area_links a.link_square {
-            border-radius: 0;
-        }
-        .main .area_copy {
-            margin-top: 20px;
-        }
-
-    </style>
-
 </head>
-<body>
+<body style="background: {{$bg}}">
 
-    <div class="main">
+    <div class="main" style="color: {{$font_color}};">
         <div class="area_profile_image">
             <img class="profile_img" src="{{$profile_image}}">
         </div>
@@ -77,7 +35,7 @@
         </div>
 
         <div class="area_copy">
-            <span>&copy; Jadiel Santos</span>
+            <span>&copy; Powered by Jadiel Santos</span>
         </div>
     </div>
 

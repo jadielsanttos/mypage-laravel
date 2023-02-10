@@ -14,8 +14,8 @@
                     <div class="item_link_href">{{$link->href}}</div>
                 </div>
                 <div class="link_item_buttons">
-                    <a href="{{url('/admin/'.$page->slug.'/editlink/'.$link->id)}}">Editar</a>
-                    <a href="{{url('/admin/'.$page->slug.'/dellink/'.$link->id)}}" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                    <a href="{{url('/admin/'.$page->slug.'/editlink/'.$link->id)}}" class="link_edit_link"><i class="fa-solid fa-pen"></i></a>
+                    <a href="{{url('/admin/'.$page->slug.'/dellink/'.$link->id)}}" class="link_delete_link" onclick="return confirm('Tem certeza que deseja excluir?')"><i class="fa-solid fa-trash"></i></a>
                 </div>
             </li>
         @endforeach
