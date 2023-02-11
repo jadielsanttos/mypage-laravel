@@ -1,6 +1,12 @@
 @extends('admin.page')
 
+@section('title', isset($link)?'Editar link':'Novo link'.' - Mylinks')
+
 @section('body')
+    <div class="link_voltar">
+        <a href="{{url('/admin/'.$page->slug.'/links')}}"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+
     <h3>{{isset($link) ? 'Editar Link' : 'Novo Link'}}</h3>
 
     <form method="post">

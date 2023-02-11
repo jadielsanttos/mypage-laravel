@@ -403,20 +403,22 @@ class AdminController extends Controller
         }
     }
 
-    public function pageDesign($slug) {
+    // página de estatísticas geral(página e links)
+    public function pageStats($slug) {
         $user = Auth::user();
-        $page = Page::where('id_user', $user->id)
-            ->where('slug', $slug)
+        $page = Page::where('slug', $slug)
+            ->where('id_user', $user->id)
             ->first();
-        return view('admin.page_design',[
-            'menu' => 'design',
-            'page' => $page
-        ]);
+
+        if($page) {
+            return view('admin.page_stats',[
+                'menu' => 'stats',
+                'page' => $page
+            ]);
+        }else {
+            return redirect('/admin');
+        }
+
     }
 
-    public function pageStats($slug) {
-        return view('admin.page_stats',[
-            'menu' => 'stats'
-        ]);
-    }
 }

@@ -1,6 +1,6 @@
 @extends('admin.template')
 
-@section('title', 'Mylinks - '.$page->op_title.'(Links)')
+@section('title', 'Links - Mylinks')
 
 @section('content')
     <div class="area_total">
@@ -8,7 +8,6 @@
             <header>
                 <ul>
                     <li @if($menu==='links') class="active" @endif><a href="{{url('/admin/'.$page->slug.'/links')}}">Links</a></li>
-                    <li @if($menu==='design') class="active" @endif><a href="{{url('/admin/'.$page->slug.'/design')}}">Aparência</a></li>
                     <li @if($menu==='stats') class="active" @endif><a href="{{url('/admin/'.$page->slug.'/stats')}}">Estatísticas</a></li>
                 </ul>
             </header>

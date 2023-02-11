@@ -1,5 +1,7 @@
 @extends('admin.template')
 
+@section('title', 'Editar página - Mylinks')
+
 @section('content')
     <header class="header">
         <h2>Editar página</h2>
@@ -7,6 +9,9 @@
 
     <div class="area_editpage">
         <div class="area_form_editpage">
+            <div class="link_voltar">
+                <a href="{{url('/admin')}}"><i class="fa-solid fa-arrow-left"></i></a>
+            </div>
             <form method="post" class="form_edit_page">
                 @csrf
 
@@ -20,7 +25,7 @@
                 <input type="color" name="bg_color_page" value="{{$colors[0]}}">
 
                 <label for="bg_color_page">Cor de fundo 2</label>
-                <input type="color" name="bg_color_page_2" value="{{$colors[1]}}">
+                <input type="color" name="bg_color_page_2" value="{{!empty($colors[1])?$colors[1]:$colors[0]}}">
 
                 <label for="title_page">Título</label>
                 <input type="text" name="title_page" value="{{$page->op_title}}">

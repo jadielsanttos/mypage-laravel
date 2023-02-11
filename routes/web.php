@@ -25,7 +25,6 @@ Route::prefix('/admin')->group(function(){
     Route::get('/{slug}/delpage/{pageid}', [AdminController::class, 'delPage']);
 
     Route::get('/{slug}/links', [AdminController::class, 'pageLinks']);
-    Route::get('/{slug}/design', [AdminController::class, 'pageDesign']);
     Route::get('/{slug}/stats', [AdminController::class, 'pageStats']);
 
     Route::get('/linkorder/{linkid}/{pos}', [AdminController::class, 'linkOrderUpdate']);

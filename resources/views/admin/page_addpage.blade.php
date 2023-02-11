@@ -1,11 +1,15 @@
 @extends('admin.template')
 
+@section('title', 'Adicionar página - Mylinks')
+
 @section('content')
 
     <header class="header">
         <h2>Adicionar página</h2>
     </header>
-
+    <div class="link_voltar">
+        <a href="{{url('/admin')}}"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
     <form method="post" class="form_add_page">
         @csrf
 
