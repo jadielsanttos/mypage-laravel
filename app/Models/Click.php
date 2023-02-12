@@ -9,7 +9,7 @@ class Click extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id_link', 'click_date'];
+    protected $fillable = ['id_link', 'link_date'];
 
     public $timestamps = false;
 }

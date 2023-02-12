@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Click;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -9,6 +10,7 @@ use Illuminate\Validation\Rule;
 use App\Models\User;
 use App\Models\Page;
 use App\Models\Link;
+use App\Models\View;
 use Illuminate\Queue\RedisQueue;
 
 class AdminController extends Controller
@@ -411,9 +413,16 @@ class AdminController extends Controller
             ->first();
 
         if($page) {
+            // puxando as views da página
+            $views = View::where('id_page', $page->id)->sum('total');
+
+            // puxando os clicks nos links
+
             return view('admin.page_stats',[
                 'menu' => 'stats',
-                'page' => $page
+                'page' => $page,
+                'views' => $views,
+                'user' => $user
             ]);
         }else {
             return redirect('/admin');

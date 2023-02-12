@@ -212,6 +212,36 @@ table a:hover {
     margin: 20px;
 }
 
+/* session page links */
+.welcome_to_user {
+    margin: 10px;
+}
+.welcome_to_user h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.views_page_area {
+    display: flex;
+    max-width: 850px;
+}
+.views_page_area .card_stats {
+    background-color: #fff;
+    color: #000;
+    width: calc(850px / 3);
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 2px #ccc;
+    border-left: 3px solid #21910a;
+}
+.views_page_area .card_stats h1 {
+    font-size: 30px;
+}
+.views_page_area .card_stats h4 {
+    margin-top: 20px;
+}
+
 /* session edit link */
 h3 {
     margin: 15px 0 10px 10px;
