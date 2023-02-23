@@ -6,35 +6,36 @@ use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('/admin')->group(function(){
     Route::get('/login', [AdminController::class, 'login'])->name('login');
-    Route::post('/login', [AdminController::class, 'loginAction']);
+    Route::post('/login', [AdminController::class, 'loginAction'])->name('Login.Action');
 
-    Route::get('/register', [AdminController::class, 'register']);
-    Route::post('/register', [AdminController::class, 'registerAction']);
-    Route::get('/logout', [AdminController::class, 'logout']);
+    Route::get('/register', [AdminController::class, 'register'])->name('register');
+    Route::post('/register', [AdminController::class, 'registerAction'])->name('register.Action');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
-    Route::get('/', [AdminController::class, 'index']);
+    Route::get('/', [AdminController::class, 'index'])->name('home.admin');
 
-    Route::get('/addpage', [AdminController::class, 'addPage']);
-    Route::post('/addpage', [AdminController::class, 'addPageAction']);
-    Route::get('/{slug}/editpage/{pageid}', [AdminController::class, 'editPage']);
-    Route::post('/{slug}/editpage/{pageid}', [AdminController::class, 'editPageAction']);
-    Route::get('/{slug}/delpage/{pageid}', [AdminController::class, 'delPage']);
+    Route::get('/addpage', [AdminController::class, 'addPage'])->name('addPage');
+    Route::post('/addpage', [AdminController::class, 'addPageAction'])->name('addPage.Action');
+    Route::get('/{slug}/editpage/{pageid}', [AdminController::class, 'editPage'])->name('editPage');
+    Route::post('/{slug}/editpage/{pageid}', [AdminController::class, 'editPageAction'])->name('editPage.Action');
+    Route::get('/{slug}/delpage/{pageid}', [AdminController::class, 'delPage'])->name('delPage');
 
-    Route::get('/{slug}/links', [AdminController::class, 'pageLinks']);
-    Route::get('/{slug}/stats', [AdminController::class, 'pageStats']);
+    Route::get('/{slug}/links', [AdminController::class, 'pageLinks'])->name('page.Links');
+    Route::get('/{slug}/stats', [AdminController::class, 'pageStats'])->name('page.Stats');
 
-    Route::get('/linkorder/{linkid}/{pos}', [AdminController::class, 'linkOrderUpdate']);
+    Route::get('/linkorder/{linkid}/{pos}', [AdminController::class, 'linkOrderUpdate'])->name('linkOrder.Update');
 
-    Route::get('/{slug}/newlink', [AdminController::class, 'newlink']);
-    Route::post('/{slug}/newlink', [AdminController::class, 'newLinkAction']);
-    Route::get('/{slug}/editlink/{linkid}', [AdminController::class, 'editLink']);
-    Route::post('/{slug}/editlink/{linkid}', [AdminController::class, 'editLinkAction']);
-    Route::get('/{slug}/dellink/{linkid}', [AdminController::class, 'delLink']);
+    Route::get('/{slug}/newlink', [AdminController::class, 'newlink'])->name('newlink');
+    Route::post('/{slug}/newlink', [AdminController::class, 'newLinkAction'])->name('newLink.Action');
+    Route::get('/{slug}/editlink/{linkid}', [AdminController::class, 'editLink'])->name('editLink');
+    Route::post('/{slug}/editlink/{linkid}', [AdminController::class, 'editLinkAction'])->name('editLink.Action');
+    Route::get('/{slug}/dellink/{linkid}', [AdminController::class, 'delLink'])->name('delLink');
 
 });
 
-Route::get('/{slug}', [PageController::class, 'index']);
+Route::get('/{slug}', [PageController::class, 'index'])->name('page');
+Route::post('/{slug}/addclick', [PageController::class, 'addClick'])->name('page.addclick');

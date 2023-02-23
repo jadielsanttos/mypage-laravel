@@ -1,0 +1,8 @@
+# Nomer as rotas para facilitar(ok)
+
+# Criar funcionalidade de registro de click
+    1 - Criar uma rota para receber a requisição(ok)
+    2 - Fazer a requisição(ok)
+    3 - Receber os dados(ok)
+    4 - Mandar para o banco(ok)
+    5 - Melhorar a forma de incrementação de um novo registro

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Click;
 use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\Link;
@@ -50,12 +51,28 @@ class PageController extends Controller
                 'title' => $page->op_title,
                 'description' => $page->op_description,
                 'bg' => $bg,
-                'links' => $links
+                'links' => $links,
+                'page' => $page
             ]);
 
         }else {
             return view('notfound');
         }
+
+    }
+
+    public function addClick(Request $request) {
+        // verifico o slug da página
+        $page = Page::where('slug', $request->slug)->first();
+
+       if($page) {
+            $newClick = new Click();
+            $newClick->id_link = $request->id;
+            $newClick->id_page = $page->id;
+            $newClick->link_date = date('Y-m-d');
+            $newClick->total++;
+            $newClick->save();
+       }
 
     }
 }

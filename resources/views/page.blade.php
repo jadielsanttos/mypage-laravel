@@ -24,8 +24,10 @@
 
         <div class="area_links">
             @foreach($links as $link)
-                <div class="teste" data-id="{{$link->id}}">
+                <div class="teste">
                     <a
+                    data-id="{{$link->id}}"
+                    onclick="addClick(this)"
                     class="btn link_{{$link->op_border_type}}"
                     style="
                     background-color: {{$link->op_bg_color}};
@@ -37,22 +39,24 @@
         </div>
 
         <div class="area_copy">
-            <span>&copy; Powered by Jadiel Santos</span>
+            <span>&copy; Mylinks</span>
         </div>
     </div>
 
     <script>
+        function addClick(e) {
+            let slug = '{{$page->slug}}';
+            let id = $(e).attr('data-id');
+            let url = `{{url('/${slug}/addclick')}}`;
 
-        document.querySelectorAll('.btn').forEach(item=>{
-            item.addEventListener('click', () => {
-                let id = item.closest('.teste').getAttribute('data-id');
-
-               alert('opa');
-            });
-        });
-
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data:{slug:slug,id:id,_token:'{{ csrf_token() }}'}
+            })
+        }
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="{{url('assets/js/script.js')}}"></script>
-    <script src="{{url('assets/js/jquery.min.js')}}"></script>
 </body>
 </html>
