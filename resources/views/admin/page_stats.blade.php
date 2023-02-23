@@ -19,8 +19,9 @@
         </div>
 
         <div class="card_stats">
-            <h1>4</h1>
+            <h1>{{$clicks}}</h1>
             <h4>Total de clicks</h4>
+
         </div>
 
         <div class="card_stats">

@@ -416,12 +416,14 @@ class AdminController extends Controller
             // puxando as views da página
             $views = View::where('id_page', $page->id)->sum('total');
 
-            // puxando os clicks nos links
+            // puxando os clicks nos links da página
+            $clicks = Click::where('id_page', $page->id)->sum('total');
 
             return view('admin.page_stats',[
                 'menu' => 'stats',
                 'page' => $page,
                 'views' => $views,
+                'clicks' => $clicks,
                 'user' => $user
             ]);
         }else {

@@ -24,13 +24,15 @@
 
         <div class="area_links">
             @foreach($links as $link)
-                <a
-                class="link_{{$link->op_border_type}}"
-                style="
-                background-color: {{$link->op_bg_color}};
-                color: {{$link->op_text_color}};"
-                target="_blank"
-                href="{{$link->href}}">{{$link->title}}</a>
+                <div class="teste" data-id="{{$link->id}}">
+                    <a
+                    class="btn link_{{$link->op_border_type}}"
+                    style="
+                    background-color: {{$link->op_bg_color}};
+                    color: {{$link->op_text_color}};"
+                    target="_blank"
+                    href="{{$link->href}}">{{$link->title}}</a>
+                </div>
             @endforeach
         </div>
 
@@ -39,5 +41,18 @@
         </div>
     </div>
 
+    <script>
+
+        document.querySelectorAll('.btn').forEach(item=>{
+            item.addEventListener('click', () => {
+                let id = item.closest('.teste').getAttribute('data-id');
+
+               alert('opa');
+            });
+        });
+
+    </script>
+    <script src="{{url('assets/js/script.js')}}"></script>
+    <script src="{{url('assets/js/jquery.min.js')}}"></script>
 </body>
 </html>
