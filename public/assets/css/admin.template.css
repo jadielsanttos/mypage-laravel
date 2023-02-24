@@ -212,7 +212,7 @@ table a:hover {
     margin: 20px;
 }
 
-/* session page links */
+/* session page stats */
 .welcome_to_user {
     margin: 10px;
 }
@@ -227,7 +227,7 @@ table a:hover {
 .views_page_area .card_stats {
     background-color: #fff;
     color: #000;
-    width: calc(850px / 3);
+    width: calc(850px / 2);
     height: 100px;
     padding: 10px;
     border-radius: 10px;
@@ -240,6 +240,7 @@ table a:hover {
 }
 .views_page_area .card_stats h4 {
     margin-top: 20px;
+    font-size: 18px;
 }
 
 /* session edit link */

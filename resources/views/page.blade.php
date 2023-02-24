@@ -24,7 +24,7 @@
 
         <div class="area_links">
             @foreach($links as $link)
-                <div class="teste">
+                <div class="area-link">
                     <a
                     data-id="{{$link->id}}"
                     onclick="addClick(this)"
@@ -39,7 +39,7 @@
         </div>
 
         <div class="area_copy">
-            <span>&copy; Mylinks</span>
+            <span>&copy; MyLinks</span>
         </div>
     </div>
 

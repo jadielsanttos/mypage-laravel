@@ -14,21 +14,14 @@
 
     <div class="views_page_area">
         <div class="card_stats">
-            <h1>{{$views}}</h1>
+            <h1>{{$views}} <i class="fa-solid fa-eye"></i></h1>
             <h4>Visitas a sua página</h4>
         </div>
 
         <div class="card_stats">
-            <h1>{{$clicks}}</h1>
+            <h1>{{$clicks}} <i class="fa-solid fa-computer-mouse"></i></h1>
             <h4>Total de clicks</h4>
-
-        </div>
-
-        <div class="card_stats">
-            <h1>10</h1>
-            <h4>Compartilhamentos</h4>
         </div>
     </div>
-
 @endsection
 

@@ -5,4 +5,8 @@
     2 - Fazer a requisição(ok)
     3 - Receber os dados(ok)
     4 - Mandar para o banco(ok)
-    5 - Melhorar a forma de incrementação de um novo registro
+    5 - Melhorar a forma de incrementação de um novo registro(ok)
+
+# Fazer upload de imagens
+
+# Criar funcionalidade de compartilhamento

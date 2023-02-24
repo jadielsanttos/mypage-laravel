@@ -66,13 +66,11 @@ class PageController extends Controller
         $page = Page::where('slug', $request->slug)->first();
 
        if($page) {
-            $newClick = new Click();
-            $newClick->id_link = $request->id;
-            $newClick->id_page = $page->id;
-            $newClick->link_date = date('Y-m-d');
-            $newClick->total++;
-            $newClick->save();
+            $click = Click::firstOrNew(
+                ['id_link' => $request->id, 'id_page' => $page->id, 'link_date' => date('Y-m-d')]
+            );
+            $click->total++;
+            $click->save();
        }
-
     }
 }
