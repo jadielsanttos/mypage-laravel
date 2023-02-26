@@ -8,5 +8,7 @@
     5 - Melhorar a forma de incrementação de um novo registro(ok)
 
 # Fazer upload de imagens(ok)
+# Adicionado dependência doctrine/dbal(ok)
+# Alterar valor padrão da coluna `op_profile_image` da tabela Pages
 
 # Criar funcionalidade de compartilhamento
