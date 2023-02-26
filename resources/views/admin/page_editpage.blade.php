@@ -12,8 +12,14 @@
             <div class="link_voltar">
                 <a href="{{url('/admin')}}"><i class="fa-solid fa-arrow-left"></i></a>
             </div>
-            <form method="post" class="form_edit_page">
+            <form method="post" class="form_edit_page" enctype="multipart/form-data">
                 @csrf
+
+                <h3>Foto de perfil</h3>
+                <img src="{{url('storage/'.$page->op_profile_image)}}" alt="">
+
+                <label for="slug_page">Alterar foto</label>
+                <input type="file" name="op_profile_image">
 
                 <label for="slug_page">Nome da página</label>
                 <input type="text" name="slug_page" value="{{$page->slug}}">

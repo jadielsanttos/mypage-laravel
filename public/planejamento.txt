@@ -7,6 +7,6 @@
     4 - Mandar para o banco(ok)
     5 - Melhorar a forma de incrementação de um novo registro(ok)
 
-# Fazer upload de imagens
+# Fazer upload de imagens(ok)
 
 # Criar funcionalidade de compartilhamento

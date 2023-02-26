@@ -365,6 +365,10 @@ class AdminController extends Controller
             ->first();
 
         if($page) {
+            // pegando a imagem e fazendo o upload
+            $profileImagePath = $request->file('op_profile_image')->store('images', 'public');
+
+            // Validando os campos
             $fields = $request->validate([
                 'slug_page' => ['required'],
                 'font_color_page' => ['required', 'regex:/^[#][0-9A-F]{3,6}$/i'],
@@ -374,8 +378,10 @@ class AdminController extends Controller
                 'description_page' => ['required']
             ]);
 
+            // salvando as 2 cores em uma variável
             $bgColors = $fields['bg_color_page'].','.$fields['bg_color_page_2'];
 
+            $page->op_profile_image = $profileImagePath;
             $page->slug = $fields['slug_page'];
             $page->op_font_color = $fields['font_color_page'];
             $page->op_bg_value = $bgColors;
