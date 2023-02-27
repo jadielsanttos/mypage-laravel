@@ -9,6 +9,7 @@
 
 # Fazer upload de imagens(ok)
 # Adicionado dependência doctrine/dbal(ok)
-# Alterar valor padrão da coluna `op_profile_image` da tabela Pages
+# Alterar valor padrão da coluna `op_profile_image` da tabela Pages(ok)
+# Renomear a coluna link_date para click_date da tabela de clicks(ok)
 
 # Criar funcionalidade de compartilhamento

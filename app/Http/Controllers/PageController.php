@@ -67,7 +67,7 @@ class PageController extends Controller
 
        if($page) {
             $click = Click::firstOrNew(
-                ['id_link' => $request->id, 'id_page' => $page->id, 'link_date' => date('Y-m-d')]
+                ['id_link' => $request->id, 'id_page' => $page->id, 'click_date' => date('Y-m-d')]
             );
             $click->total++;
             $click->save();
