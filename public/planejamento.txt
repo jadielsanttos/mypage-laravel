@@ -12,4 +12,8 @@
 # Alterar valor padrão da coluna `op_profile_image` da tabela Pages(ok)
 # Renomear a coluna link_date para click_date da tabela de clicks(ok)
 
+# Fazer melhoria no update de imagens
+    1 - Deletar a imagem atual(ok)
+    2 - Salvar a nova(ok)
+
 # Criar funcionalidade de compartilhamento

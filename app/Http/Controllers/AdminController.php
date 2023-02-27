@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Click;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 use App\Models\User;
@@ -380,6 +381,10 @@ class AdminController extends Controller
 
             // pegando a imagem e fazendo o upload
             if($request->hasFile('op_profile_image')) {
+                // deletando do sistema a imagem atual
+                Storage::disk('public')->delete($page->op_profile_image);
+
+                // fazendo upload e salvando no banco de dados a nova imagem
                 $profileImagePath = $request->file('op_profile_image')->store('images', 'public');
                 $page->op_profile_image = $profileImagePath;
             }
