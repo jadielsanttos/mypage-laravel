@@ -4,9 +4,12 @@
 
 @section('content')
     <header class="header">
-        <h2>Editar página</h2>
+        <div class="icon_menu"><i class="fa-solid fa-bars"></i></div>
     </header>
 
+    <div class="title_page">
+        <h2>Editar página</h2>
+    </div>
     <div class="area_editpage">
         <div class="area_form_editpage">
             <div class="link_voltar">

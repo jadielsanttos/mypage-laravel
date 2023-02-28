@@ -25,7 +25,7 @@ class PageController extends Controller
                 break;
                 case 'color':
                     $colors = explode(',', $page->op_bg_value);
-                    $bg = 'linear-gradient(90deg,';
+                    $bg = 'linear-gradient(145deg,';
                     $bg .= $colors[0].',';
                     $bg .= !empty($colors[1]) ? $colors[1] : $colors[0];
                     $bg .= ')';

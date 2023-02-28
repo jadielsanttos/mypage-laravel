@@ -40,6 +40,17 @@ nav i {
     background-color: #FFF;
     padding: 10px;
     border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+}
+.header .icon_menu {
+    cursor: pointer;
+}
+.header .icon_menu i {
+    font-size: 20px;
+}
+.title_page {
+    margin-left: 10px;
 }
 .link_add_page {
     width: 150px;
@@ -123,8 +134,17 @@ table a:hover {
     border-right: 1px solid #ccc;
 }
 .area_total .left_side header {
+    display: flex;
+    align-items: center;
     background-color: #FFF;
     border: 1px solid #ccc;
+}
+.area_total .left_side header .icon_menu {
+    margin: 0 15px 0 10px;
+    cursor: pointer;
+}
+.area_total .left_side header .icon_menu i {
+    font-size: 20px;
 }
 .area_total .left_side header ul {
     display: flex;
@@ -211,38 +231,6 @@ table a:hover {
     border-radius: 20px;
     margin: 20px;
 }
-
-/* session page stats */
-.welcome_to_user {
-    margin: 10px;
-}
-.welcome_to_user h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-.views_page_area {
-    display: flex;
-    max-width: 850px;
-}
-.views_page_area .card_stats {
-    background-color: #fff;
-    color: #000;
-    width: calc(850px / 2);
-    height: 100px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px;
-    box-shadow: 0 2px 2px #ccc;
-    border-left: 3px solid #21910a;
-}
-.views_page_area .card_stats h1 {
-    font-size: 30px;
-}
-.views_page_area .card_stats h4 {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
 /* session edit link */
 h3 {
     margin: 15px 0 10px 10px;
@@ -271,6 +259,37 @@ form input[type="submit"] {
     cursor: pointer;
     background-color: #21910a;
     color: #fff;
+}
+
+/* session page stats */
+.welcome_to_user {
+    margin: 10px;
+}
+.welcome_to_user h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.stats_page_area {
+    display: flex;
+    width: 500px;
+}
+.stats_page_area .card_stats {
+    background-color: #fff;
+    color: #000;
+    width: 250px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 2px #ccc;
+    border-left: 3px solid #21910a;
+}
+.stats_page_area .card_stats h1 {
+    font-size: 30px;
+}
+.stats_page_area .card_stats h4 {
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 /* session add page */
@@ -348,5 +367,31 @@ form input[type="submit"] {
     border-radius: 20px;
 }
 
+@media (max-width: 768px) {
+    /* session edit page */
+    .area_editpage {
+        flex-direction: column;
+    }
+    /* session page links */
+    .area_total {
+        flex-direction: column;
+    }
+    .area_total .right_side {
+        margin: 0;
+    }
+    /* session page stats */
+    .stats_page_area {
+        flex-direction: column;
+    }
+    .stats_page_area .card_stats {
+        width: 100%;
+    }
 
+}
+
+@media (max-width: 600px) {
+    .stats_page_area {
+        width: 350px;
+    }
+}
 

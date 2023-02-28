@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <title>{{$title}}</title>
 </head>
-<body style="background: {{$bg}}">
+<body style="background: {{$bg}};height:100vh;">
 
     <div class="main" style="color: {{$font_color}};">
         <div class="area_profile_image">

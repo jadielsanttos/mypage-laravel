@@ -16,4 +16,9 @@
     1 - Deletar a imagem atual(ok)
     2 - Salvar a nova(ok)
 
+# Melhorar o frontend da aplicação
+    1 - melhorar visual da página(ok)
+    2 - melhorar o visual do painel(ok)
+    3 - deixar o painel responsivo(ok)
+
 # Criar funcionalidade de compartilhamento

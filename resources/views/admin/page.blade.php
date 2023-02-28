@@ -6,6 +6,9 @@
     <div class="area_total">
         <div class="left_side">
             <header>
+                <div class="icon_menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
                 <ul>
                     <li @if($menu==='links') class="active" @endif><a href="{{url('/admin/'.$page->slug.'/links')}}">Links</a></li>
                     <li @if($menu==='stats') class="active" @endif><a href="{{url('/admin/'.$page->slug.'/stats')}}">Estatísticas</a></li>

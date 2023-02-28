@@ -5,9 +5,12 @@
 @section('content')
 
     <header class="header">
-        <h2>Suas páginas</h2>
+        <div class="icon_menu"><i class="fa-solid fa-bars"></i></div>
     </header>
 
+    <div class="title_page">
+        <h2>Suas páginas</h2>
+    </div>
     <a href="{{url('/admin/addpage')}}" class="link_add_page">Adicionar página</a>
 
     <table>
