@@ -18,6 +18,9 @@ Route::prefix('/admin')->group(function(){
 
     Route::get('/', [AdminController::class, 'index'])->name('home.admin');
 
+    Route::get('/profile/{userId}', [AdminController::class, 'profileUser'])->name('profile.user');
+    Route::post('/profile/{userId}', [AdminController::class, 'profileUserEditAction'])->name('profileEdit.action');
+
     Route::get('/addpage', [AdminController::class, 'addPage'])->name('addPage');
     Route::post('/addpage', [AdminController::class, 'addPageAction'])->name('addPage.Action');
     Route::get('/{slug}/editpage/{pageid}', [AdminController::class, 'editPage'])->name('editPage');

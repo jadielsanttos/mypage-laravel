@@ -12,11 +12,20 @@
 
     <nav>
         <div class="nav__top">
-            <a href="{{url('/admin')}}"><i class="fa-solid fa-pager"></i></a>
+            <a href="{{url('/admin')}}"><i class="fa-solid fa-house"></i></a>
         </div>
 
         <div class="nav_bottom">
-            <a href="{{url('/admin/logout')}}"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <div class="area_icon_profile">
+                <div class="fake_img_profile">
+                    {{substr($user->name,0,1)}}
+                </div>
+            </div>
+
+            <div class="modal_options_to_user">
+                <a href="{{url('/admin/profile/'.$user->id)}}"><i class="fa-solid fa-user"></i> Perfil</a>
+                <a href="{{url('/admin/logout')}}"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            </div>
         </div>
     </nav>
 

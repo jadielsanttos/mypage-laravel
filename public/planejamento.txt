@@ -21,4 +21,10 @@
     2 - melhorar o visual do painel(ok)
     3 - deixar o painel responsivo(ok)
 
+# Adicionar página de perfil do usuário
+    1 - criar rota(ok)
+    2 - puxar os dados(ok)
+    3 - fazer a edição(ok)
+    4 - fazer upload de arquivo(imagem de perfil)
+
 # Criar funcionalidade de compartilhamento

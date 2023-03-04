@@ -7,7 +7,6 @@
     <header class="header">
         <div class="icon_menu"><i class="fa-solid fa-bars"></i></div>
     </header>
-
     <div class="title_page">
         <h2>Nova página</h2>
     </div>

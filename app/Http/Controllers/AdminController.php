@@ -83,8 +83,42 @@ class AdminController extends Controller
             ->get();
 
         return view('admin.index',[
-            'pages' => $pages
+            'pages' => $pages,
+            'user' => $user
         ]);
+    }
+
+    public function profileUser($userID) {
+        $user = Auth::user();
+
+        if($userID == $user->id) {
+            return view('admin.page_profile', [
+                'user' => $user
+            ]);
+        }else {
+            return redirect('/admin');
+        }
+
+    }
+
+    public function profileUserEditAction($userID, Request $request) {
+        $user = Auth::user();
+
+        if($user->id == $userID) {
+            $userEdit = User::where('id', $userID)->first();
+            $userEdit->name = $request['nameEdit'];
+
+            if(!$request['passEdit'] == '') {
+                $userEdit->password = password_hash($request['passEdit'], PASSWORD_DEFAULT);
+            }
+            $userEdit->save();
+
+            return redirect('/admin/profile/'.$user->id);
+
+        }else {
+            return redirect('/admin');
+        }
+
     }
 
     public function pageLinks($slug) {
@@ -101,7 +135,8 @@ class AdminController extends Controller
             return view('admin.page_links',[
                 'menu' => 'links',
                 'page' => $page,
-                'links' => $links
+                'links' => $links,
+                'user' => $user
             ]);
         }else {
             return redirect('/admin');
@@ -177,7 +212,8 @@ class AdminController extends Controller
 
             return view('admin.page_editlink',[
                 'menu' => 'links',
-                'page' => $page
+                'page' => $page,
+                'user' => $user
             ]);
 
         }else {
@@ -237,7 +273,8 @@ class AdminController extends Controller
                 return view('admin.page_editlink',[
                     'menu' => 'links',
                     'page' => $page,
-                    'link' => $link
+                    'link' => $link,
+                    'user' => $user
                 ]);
             }
         }
@@ -316,7 +353,9 @@ class AdminController extends Controller
     public function addPage() {
         $user = Auth::user();
 
-        return view('admin.page_addpage');
+        return view('admin.page_addpage',[
+            'user' => $user
+        ]);
     }
 
     public function addPageAction(Request $request) {
@@ -350,7 +389,8 @@ class AdminController extends Controller
 
             return view('admin.page_editpage',[
                 'page' => $page,
-                'colors' => $colors
+                'colors' => $colors,
+                'user' => $user
             ]);
         }else {
             return redirect('/admin');
