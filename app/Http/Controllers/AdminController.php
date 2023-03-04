@@ -106,11 +106,15 @@ class AdminController extends Controller
 
         if($user->id == $userID) {
             $userEdit = User::where('id', $userID)->first();
-            $userEdit->name = $request['nameEdit'];
+
+            if(!$request['nameEdit'] == '') {
+                $userEdit->name = $request['nameEdit'];
+            }
 
             if(!$request['passEdit'] == '') {
                 $userEdit->password = password_hash($request['passEdit'], PASSWORD_DEFAULT);
             }
+
             $userEdit->save();
 
             return redirect('/admin/profile/'.$user->id);
@@ -119,6 +123,25 @@ class AdminController extends Controller
             return redirect('/admin');
         }
 
+    }
+
+    public function uploadProfileImg($userID, Request $request) {
+        $user = Auth::user();
+
+        if($user->id == $userID) {
+
+            $userUpload = User::where('id', $userID)->first();
+
+            if($request->hasFile('profileImgEdit')) {
+                Storage::disk('public')->delete($user->profile_img);
+                $userUpload->profile_img = $request->file('profileImgEdit')->store('imagesProfileUser', 'public');
+                $userUpload->save();
+
+                return redirect('/admin/profile/'.$user->id);
+            }
+        }
+        
+        return redirect('/admin');
     }
 
     public function pageLinks($slug) {

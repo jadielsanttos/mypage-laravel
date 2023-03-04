@@ -25,6 +25,6 @@
     1 - criar rota(ok)
     2 - puxar os dados(ok)
     3 - fazer a edição(ok)
-    4 - fazer upload de arquivo(imagem de perfil)
+    4 - fazer upload de arquivo(imagem de perfil)(ok)
 
 # Criar funcionalidade de compartilhamento

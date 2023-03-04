@@ -23,4 +23,30 @@ document.querySelector('.area_icon_profile').addEventListener('click', () => {
     }
 });
 
+// function open modal profile-img
+document.querySelector('.btn_open_modal').addEventListener('click', () => {
+    document.querySelector('.modal_upload_img').style.opacity = '0';
+    document.querySelector('.shadow_modal').style.opacity = '0';
+    document.querySelector('.modal_upload_img').style.display = 'block';
+    document.querySelector('.shadow_modal').style.display = 'block';
+
+    setTimeout(() => {
+        document.querySelector('.modal_upload_img').style.opacity = '1';
+        document.querySelector('.shadow_modal').style.opacity = '1';
+    }, 200);
+
+});
+
+// function close modal profile-img
+document.querySelector('.close_modal').addEventListener('click', () => {
+    document.querySelector('.modal_upload_img').style.opacity = '1';
+    document.querySelector('.shadow_modal').style.opacity = '1';
+
+    setTimeout(() => {
+        document.querySelector('.modal_upload_img').style.display = 'none';
+        document.querySelector('.shadow_modal').style.display = 'none';
+    }, 200);
+
+});
+
 

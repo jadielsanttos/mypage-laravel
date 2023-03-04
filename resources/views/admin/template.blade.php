@@ -34,6 +34,7 @@
     </section>
 
     <script src="{{url('assets/js/script.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>
 </html>
