@@ -8,7 +8,7 @@
     </div>
 
     <div class="welcome_to_user">
-        <h1>Bem-vindo(a), {{$user->email}}</h1>
+        <h1>Olá, {{$user->name}}</h1>
         <p>Essa é sua página de estatísticas</p>
     </div>
 

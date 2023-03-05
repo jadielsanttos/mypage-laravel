@@ -6,6 +6,7 @@
 
     <header class="header">
         <div class="icon_menu"><i class="fa-solid fa-bars"></i></div>
+        <div class="item_logo"><h2>MyLinks</h2></div>
     </header>
     <div class="title_page">
         <h2>Editar perfil</h2>

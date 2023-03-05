@@ -17,9 +17,15 @@
 
         <div class="nav_bottom">
             <div class="area_icon_profile">
-                <div class="fake_img_profile">
-                    {{substr($user->name,0,1)}}
-                </div>
+                @if ($user->profile_img == null)
+                    <div class="fake_img_profile">
+                        {{substr($user->name,0,1)}}
+                    </div>
+                @else
+                    <div class="area_img_profile">
+                        <img src="{{url('storage/'.$user->profile_img)}}" alt="">
+                    </div>
+                @endif
             </div>
 
             <div class="modal_options_to_user">

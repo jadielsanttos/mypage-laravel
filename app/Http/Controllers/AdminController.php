@@ -50,13 +50,14 @@ class AdminController extends Controller
     }
 
     public function registerAction(Request $request) {
-        $creds = $request->only('email', 'password');
+        $creds = $request->only('name', 'email', 'password');
 
         $hasEmail = User::where('email', $creds['email'])->count();
 
         if($hasEmail === 0) {
 
             $newUser = new User();
+            $newUser->name = $creds['name'];
             $newUser->email = $creds['email'];
             $newUser->password = password_hash($creds['password'], PASSWORD_DEFAULT);
             $newUser->save();
@@ -133,14 +134,16 @@ class AdminController extends Controller
             $userUpload = User::where('id', $userID)->first();
 
             if($request->hasFile('profileImgEdit')) {
-                Storage::disk('public')->delete($user->profile_img);
+                if($userUpload->profile_img != null) {
+                    Storage::disk('public')->delete($user->profile_img);
+                }
                 $userUpload->profile_img = $request->file('profileImgEdit')->store('imagesProfileUser', 'public');
                 $userUpload->save();
 
                 return redirect('/admin/profile/'.$user->id);
             }
         }
-        
+
         return redirect('/admin');
     }
 

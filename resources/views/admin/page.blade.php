@@ -9,6 +9,9 @@
                 <div class="icon_menu">
                     <i class="fa-solid fa-bars"></i>
                 </div>
+                <div class="item_logo">
+                    <h2>MyLinks</h2>
+                </div>
                 <ul>
                     <li @if($menu==='links') class="active" @endif><a href="{{url('/admin/'.$page->slug.'/links')}}">Links</a></li>
                     <li @if($menu==='stats') class="active" @endif><a href="{{url('/admin/'.$page->slug.'/stats')}}">Estatísticas</a></li>
