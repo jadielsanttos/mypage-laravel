@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Poppins&family=Roboto&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+html, body {
+    width: 100%;
+}
+.main {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 80px;
+}
+.main .area_profile_image .profile_img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.main .area_description,
+.main .area_title {
+    margin-bottom: 10px;
+}
+.main .area_links {
+    width: 300px;
+}
+.main .area_links a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    transition: all ease .3s;
+}
+.main .area_links a:hover {
+    transform: scale(1.1);
+}
+.main .area_links a.link_rounded {
+    border-radius: 50px;
+}
+.main .area_links a.link_square {
+    border-radius: 0;
+}
+.main .area_copy {
+    margin-top: 20px;
+}

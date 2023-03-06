@@ -27,4 +27,8 @@
     3 - fazer a edição(ok)
     4 - fazer upload de arquivo(imagem de perfil)(ok)
 
+# Fazer layout da página home
+    1 - desktop(ok)
+    2 - mobile
+
 # Criar funcionalidade de compartilhamento
