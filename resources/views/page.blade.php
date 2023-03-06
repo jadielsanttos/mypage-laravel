@@ -11,7 +11,7 @@
 
     <div class="main" style="color: {{$font_color}};">
         <div class="area_profile_image">
-            <img class="profile_img" src="{{$profile_image}}">
+            <img class="profile_img" src="{{($page->op_profile_image === 'default.png') ? url('media/default.png') : $profile_image}}">
         </div>
 
         <div class="area_title">

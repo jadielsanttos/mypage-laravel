@@ -5,7 +5,7 @@
 @section('content')
     <header class="header">
         <div class="icon_menu"><i class="fa-solid fa-bars"></i></div>
-        <div class="item_logo"><h2>MyLinks</h2></div>
+        <div class="item_logo"><img src="{{url('assets/images/MyLinks.png')}}" alt=""></div>
     </header>
 
     <div class="title_page">
@@ -20,7 +20,7 @@
                 @csrf
 
                 <h3>Foto de perfil</h3>
-                <img src="{{url('storage/'.$page->op_profile_image)}}" alt="">
+                <img src="{{($page->op_profile_image === 'default.png') ? url('media/default.png') : url('storage/'.$page->op_profile_image)}}" alt="">
 
                 <label for="slug_page">Alterar foto</label>
                 <input type="file" name="op_profile_image">

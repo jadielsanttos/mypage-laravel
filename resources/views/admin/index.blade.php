@@ -6,7 +6,7 @@
 
     <header class="header">
         <div class="icon_menu"><i class="fa-solid fa-bars"></i></div>
-        <div class="item_logo"><h2>MyLinks</h2></div>
+        <div class="item_logo"><img src="{{url('assets/images/MyLinks.png')}}" alt=""></div>
     </header>
 
     <div class="title_page">

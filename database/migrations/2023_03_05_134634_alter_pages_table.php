@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('pages', function(Blueprint $table) {
-            $table->string('op_bg_value')->default('#FFFFFF')->change();
-            $table->string('op_profile_image')->default('images/default.png')->change();
+        Schema::table('pages', function(Blueprint $table){
+            $table->string('op_profile_image')->default('default.png')->change();
         });
     }
 

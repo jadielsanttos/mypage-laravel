@@ -98,7 +98,7 @@ nav .modal_options_to_user i {
 /* session home admin */
 .header {
     background-color: #FFF;
-    padding: 10px;
+    padding: 0px 10px;
     border: 1px solid #ccc;
     display: flex;
     align-items: center;
@@ -109,8 +109,7 @@ nav .modal_options_to_user i {
 .header .icon_menu i {
     font-size: 20px;
 }
-.header .item_logo h2 {
-    color: #21910a;
+.header .item_logo img {
     margin: 0px 15px;
 }
 .title_page {
@@ -395,10 +394,9 @@ table a:hover {
     display: block;
     text-decoration: none;
     color: #000;
-    padding: 15px;
+    padding: 30px 15px;
 }
-.area_total .left_side header .item_logo h2 {
-    color: #21910a;
+.area_total .left_side header .item_logo img {
     margin: 0px 15px;
 }
 .area_total .left_side a.big_button {

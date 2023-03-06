@@ -10,7 +10,7 @@
                     <i class="fa-solid fa-bars"></i>
                 </div>
                 <div class="item_logo">
-                    <h2>MyLinks</h2>
+                    <img src="{{url('assets/images/MyLinks.png')}}" alt="">
                 </div>
                 <ul>
                     <li @if($menu==='links') class="active" @endif><a href="{{url('/admin/'.$page->slug.'/links')}}">Links</a></li>
