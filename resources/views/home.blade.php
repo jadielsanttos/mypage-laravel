@@ -22,6 +22,18 @@
                     <a href="{{url('/admin/register')}}" class="btn_register">Começar grátis</a>
                 </nav>
             </div>
+            <div class="area_menu_mobile">
+                <div class="btn_close_menu_mobile">
+                    <span><i class="fa-solid fa-xmark"></i></span>
+                </div>
+                <nav>
+                    <a href="{{url('/admin/login')}}">Entrar</a>
+                    <a href="{{url('/admin/register')}}" class="btn_register">Começar grátis</a>
+                </nav>
+            </div>
+            <div class="btn_toggle_menu_mobile">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
     </header>
 
@@ -43,7 +55,8 @@
         <div class="area_container">
             <div class="left_side">
                 <div class="area_img">
-                    <img src="{{url('assets/images/painel-mylinks.png')}}" alt="">
+                    <img class="img_desktop" src="{{url('assets/images/painel-mylinks.png')}}" alt="">
+                    <img class="img_mobile" src="{{url('assets/images/2023-03-08.png')}}" alt="">
                 </div>
             </div>
             <div class="right_side">
@@ -98,7 +111,6 @@
         <div class="area_footer">
             <div class="footer_left">
                 <img src="{{url('assets/images/MyLinks.png')}}" alt="">
-                <p>&copy; MyLinks 2023 - Todos os direitos reservados</p>
             </div>
 
             <div class="footer_right">
@@ -110,9 +122,21 @@
                     </ul>
                 </div>
             </div>
+            <div class="area_copy">
+                <p>&copy; <strong>MyLinks</strong> 2023 - Todos os direitos reservados</p>
+            </div>
         </div>
     </footer>
 
+    <script>
+        document.querySelector('.btn_toggle_menu_mobile').addEventListener('click', () => {
+            document.querySelector('.area_menu_mobile').style.width = '60vw';
+        });
+
+        document.querySelector('.btn_close_menu_mobile').addEventListener('click', () => {
+            document.querySelector('.area_menu_mobile').style.width = '0vw';
+        });
+    </script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>
 </html>

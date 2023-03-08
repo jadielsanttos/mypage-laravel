@@ -29,6 +29,6 @@
 
 # Fazer layout da página home
     1 - desktop(ok)
-    2 - mobile
+    2 - mobile(ok)
 
 # Criar funcionalidade de compartilhamento
