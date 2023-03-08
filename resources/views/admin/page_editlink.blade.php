@@ -1,6 +1,6 @@
 @extends('admin.page')
 
-@section('title', isset($link)?'Editar link':'Novo link'.' - Mylinks')
+@section('title', isset($link)?'Editar link'.' - MyLinks':'Novo link'.' - Mylinks')
 
 @section('body')
     <div class="link_voltar">

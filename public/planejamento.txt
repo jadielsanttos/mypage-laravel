@@ -31,4 +31,6 @@
     1 - desktop(ok)
     2 - mobile(ok)
 
+# Melhorar telas de login e cadastro(ok)
+
 # Criar funcionalidade de compartilhamento

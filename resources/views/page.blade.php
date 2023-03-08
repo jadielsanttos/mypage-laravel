@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{url('assets/css/page.css')}}">
+    <link rel="shortcut icon" href="{{url('assets/images/favicon-oficial.png')}}" type="image/x-icon">
     <title>{{$title}}</title>
 </head>
 <body style="background: {{$bg}};height:100vh;">
@@ -39,7 +40,7 @@
         </div>
 
         <div class="area_copy">
-            <span>&copy; MyLinks</span>
+            <span>&copy; <strong>MyLinks</strong></span>
         </div>
     </div>
 

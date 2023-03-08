@@ -3,14 +3,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 html, body {
     width: 100%;
 }
 .main {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     margin: 0 auto;
     display: flex;
     justify-content: center;

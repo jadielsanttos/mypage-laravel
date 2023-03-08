@@ -3,31 +3,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 html, body {
     width: 100%;
     height: 100vh;
     margin: 0;
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    background-color: #fff;
 }
 .area_login {
     width: 100%;
-    max-width: 400px;
-    margin-top: 50px;
-    padding: 30px 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    height: 100vh;
+    display: flex;
+    /* padding: 30px 20px; */
 }
-.area_login h1 {
+.area_login .left_side {
+    width: 30%;
+    padding: 30px 20px;
+    background-color: #f5f5f5;
+    color: #000;
+}
+.area_login .left_side .link_voltar {
+    display: none;
+}
+.area_login .left_side .title h1 {
     margin: 0 0 20px 0;
 }
-.area_login .error_msg {
+.area_login .left_side .error_msg {
     width: 100%;
     background-color: #F8D7DA;
     color: #842029;
@@ -36,7 +38,7 @@ html, body {
     padding: 15px 10px;
     border: 1px solid #f5c2c7;
 }
-.area_login input {
+.area_login .left_side .area_form form input {
     width: 100%;
     margin-bottom: 10px;
     padding: 15px 10px;
@@ -44,22 +46,73 @@ html, body {
     border: 1px solid #ccc;
     outline: 0;
 }
-.area_login input[type='submit'] {
+.area_login .left_side .area_form form input:focus {
+    border: 1px solid #21910a;
+}
+.area_login .left_side .area_form form input[type='submit'] {
     cursor: pointer;
     font-size: 18px;
     background-color: #21910a;
     color: #fff;
     transition: .3s;
 }
-.area_login input[type='submit']:hover {
-    background-color: #177405;
+.area_login .left_side .area_form form input[type='submit']:hover {
+    transform: translateX(10px);
 }
-.area_login a {
+.area_login .left_side .area_form form span.single_span {
+    margin-left: -30px;
+    margin-top: 15px;
+    position: absolute;
+    cursor: pointer;
+}
+.area_login .left_side .area_form form span.single_span i {
+    color: #ccc;
+}
+.area_login .left_side .area_form form a {
     text-decoration: none;
     color: #000;
     transition: .5s;
 }
-.area_login a:hover {
+.area_login .left_side .area_form form a:hover {
     text-decoration: underline;
-    color: #177405;
+    color: #21910a;
+}
+.area_login .right_side {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #ccc;
+}
+.area_login .right_side img {
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+}
+
+@media (max-width: 768px) {
+    .area_login .left_side {
+        width: 60%;
+    }
+    .area_login .right_side {
+        width: 40%;
+    }
+}
+
+@media (max-width: 550px) {
+    .area_login .right_side {
+        display: none;
+    }
+    .area_login .left_side {
+        width: 100%;
+    }
+    .area_login .left_side .link_voltar {
+        display: block;
+        margin-bottom: 20px;
+    }
+    .area_login .left_side .link_voltar a {
+        text-decoration: none;
+        color: #000;
+        font-size: 20px;
+    }
 }
