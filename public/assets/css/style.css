@@ -398,6 +398,9 @@ html, body {
         width: 310px;
         height: 180px;
     }
+    .section_footer .area_footer .footer_right .navigation ul {
+        flex-wrap: wrap;
+    }
 }
 
 @media (max-width: 375px) {

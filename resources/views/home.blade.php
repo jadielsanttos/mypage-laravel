@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="{{url('assets/images/favicon-oficial.png')}}" type="image/x-icon">
-    <title>MyLinks</title>
+    <title>MyPage</title>
 </head>
 <body>
 
     <header class="section_header">
         <div class="area_header">
             <div class="area_logo">
-                <a href=""><img src="{{url('assets/images/MyLinks.png')}}" alt=""></a>
+                <a href=""><img src="{{url('assets/images/MyPage.png')}}" alt=""></a>
             </div>
             <div class="area_menu_desktop">
                 <nav>
@@ -110,7 +110,7 @@
     <footer class="section_footer">
         <div class="area_footer">
             <div class="footer_left">
-                <img src="{{url('assets/images/MyLinks.png')}}" alt="">
+                <img src="{{url('assets/images/MyPage.png')}}" alt="">
             </div>
 
             <div class="footer_right">
@@ -123,7 +123,7 @@
                 </div>
             </div>
             <div class="area_copy">
-                <p>&copy; <strong>MyLinks</strong> 2023 - Todos os direitos reservados</p>
+                <p><strong>MyPage</strong> 2023 - &copy; Todos os direitos reservados</p>
             </div>
         </div>
     </footer>

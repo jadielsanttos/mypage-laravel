@@ -1,6 +1,6 @@
 @extends('admin.page')
 
-@section('title', 'Estatísticas - Mylinks')
+@section('title', 'MyPage - Estatísticas')
 
 @section('body')
     <div class="link_voltar">

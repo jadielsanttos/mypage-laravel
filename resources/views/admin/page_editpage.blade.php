@@ -1,11 +1,11 @@
 @extends('admin.template')
 
-@section('title', 'Editar página - Mylinks')
+@section('title', 'MyPage - Editar página')
 
 @section('content')
     <header class="header">
         <div class="icon_menu"><i class="fa-solid fa-bars"></i></div>
-        <div class="item_logo"><img src="{{url('assets/images/MyLinks.png')}}" alt=""></div>
+        <div class="item_logo"><a href="{{url('/admin')}}"><img src="{{url('assets/images/MyPage.png')}}" alt=""></a></div>
     </header>
 
     <div class="title_page">

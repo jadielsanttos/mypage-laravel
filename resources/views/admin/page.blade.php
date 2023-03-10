@@ -1,6 +1,6 @@
 @extends('admin.template')
 
-@section('title', 'Links - Mylinks')
+@section('title', 'MyPage - Links')
 
 @section('content')
     <div class="area_total">
@@ -10,7 +10,7 @@
                     <i class="fa-solid fa-bars"></i>
                 </div>
                 <div class="item_logo">
-                    <img src="{{url('assets/images/MyLinks.png')}}" alt="">
+                    <a href="{{url('/admin')}}"><img src="{{url('assets/images/MyPage.png')}}" alt=""></a>
                 </div>
                 <ul>
                     <li @if($menu==='links') class="active" @endif><a href="{{url('/admin/'.$page->slug.'/links')}}">Links</a></li>

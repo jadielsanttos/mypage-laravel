@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{url('assets/css/page.css')}}">
     <link rel="shortcut icon" href="{{url('assets/images/favicon-oficial.png')}}" type="image/x-icon">
-    <title>{{$title}}</title>
+    <title>{{$title}} | MyPage</title>
 </head>
 <body style="background: {{$bg}};height:100vh;">
 
@@ -40,7 +40,7 @@
         </div>
 
         <div class="area_copy">
-            <span>&copy; <strong>MyLinks</strong></span>
+            <span>&copy; <strong>MyPage</strong></span>
         </div>
     </div>
 
