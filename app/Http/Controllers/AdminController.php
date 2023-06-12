@@ -54,21 +54,29 @@ class AdminController extends Controller
 
         $hasEmail = User::where('email', $creds['email'])->count();
 
-        if($hasEmail === 0) {
+        if($creds['name'] && $creds['email'] && $creds['password']) {
 
-            $newUser = new User();
-            $newUser->name = $creds['name'];
-            $newUser->email = $creds['email'];
-            $newUser->password = password_hash($creds['password'], PASSWORD_DEFAULT);
-            $newUser->save();
+            if($hasEmail === 0) {
 
-            Auth::login($newUser);
-            return redirect('/admin');
+                $newUser = new User();
+                $newUser->name = $creds['name'];
+                $newUser->email = $creds['email'];
+                $newUser->password = password_hash($creds['password'], PASSWORD_DEFAULT);
+                $newUser->save();
+
+                Auth::login($newUser);
+                return redirect('/admin');
+
+            }else {
+                $request->session()->flash('error', 'Já existe um usuário com este email');
+                return redirect('/admin/register');
+            }
 
         }else {
-            $request->session()->flash('error', 'Já existe um usuário com este email');
+            $request->session()->flash('error', 'Preencha todos os campos');
             return redirect('/admin/register');
         }
+
     }
 
     public function logout() {

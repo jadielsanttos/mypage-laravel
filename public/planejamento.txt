@@ -33,6 +33,6 @@
 
 # Melhorar telas de login e cadastro(ok)
 
-# Fazer validação em todos os formulários
+# Fazer validação em todos os formulários(ok)
 
 # Criar funcionalidade de compartilhamento
