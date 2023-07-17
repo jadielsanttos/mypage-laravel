@@ -1,14 +1,12 @@
 // function toggle sidebar
 document.querySelector('.icon_menu').addEventListener('click', () => {
-    let aside =  document.querySelector('nav');
+    let menu =  document.querySelector('.left_side_template');
     let areaTotal = document.querySelector('.container_single');
 
-    if(aside.style.display === 'none') {
-        aside.style.display = 'flex';
-        areaTotal.style.marginLeft = '80px';
+    if(menu.style.display === 'none') {
+        menu.style.display = 'block';
     }else {
-        aside.style.display = 'none';
-        areaTotal.style.marginLeft = '0';
+        menu.style.display = 'none';
     }
 });
 
