@@ -17,13 +17,24 @@
         </div>
 
         <div class="area_links_template">
-            <nav>
-                <ul>
-                    <li><a href="{{url('/admin')}}"><i class="fa-solid fa-house fa-sm"></i> Home</a></li>
-                    <li><a href="{{url('/admin/pages')}}"><i class="fa-regular fa-file-lines"></i> Páginas</a></li>
-                    <li><a href="{{url('/admin/profile/'.$user->id)}}"><i class="fa-regular fa-user"></i> Perfil</a></li>
-                </ul>
-            </nav>
+            <div class="link_item">
+                <a href="{{url('/admin')}}" @if($activeMenu==='home') class="active" @endif>
+                    <div class="icon"><i class="fa-solid fa-house fa-sm"></i></div>
+                    <div class="link_text"><span>Home</span></div>
+                </a>
+            </div>
+            <div class="link_item">
+                <a href="{{url('/admin/pages')}}" @if($activeMenu==='pages') class="active" @endif>
+                    <div class="icon"><i class="fa-regular fa-file-lines"></i></div>
+                    <div class="link_text"><span>Páginas</span></div>
+                </a>
+            </div>
+            <div class="link_item">
+                <a href="{{url('/admin/profile/'.$user->id)}}" @if($activeMenu==='profile') class="active" @endif>
+                    <div class="icon"><i class="fa-regular fa-user"></i></div>
+                    <div class="link_text"><span>Perfil</span></div>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -36,6 +47,13 @@
                 </div>
                 <div class="profile_img">
                     <img src="{{url('storage/'.$user->profile_img)}}" alt="Imagem de perfil">
+                </div>
+                <div class="profile_popup">
+                    <div class="arrow_up"></div>
+                    <div class="area_links_popup">
+                        <a href="{{url('/admin/profile/'.$user->id)}}"><i class="fa-regular fa-user"></i> Meu perfil</a>
+                        <a href="{{url('/admin/logout')}}"><i class="fa-solid fa-power-off"></i> Sair</a>
+                    </div>
                 </div>
             </div>
         </div>

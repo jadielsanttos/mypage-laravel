@@ -29,8 +29,13 @@ body {
     margin-bottom: 35px;
 }
 
+.section_home, .section_pages_list, .section_add_page {
+    padding: 36px 20px;
+}
+
 /* css template */
 .left_side_template {
+    position: fixed;
     width: 230px;
     height: 100vh;
     padding: 0 20px;
@@ -42,29 +47,35 @@ body {
     padding-top: 18px;
 }
 
-.left_side_template .area_links_template nav ul {
-    list-style: none;
+.left_side_template .area_links_template .link_item {
+    padding-bottom: 20px;
 }
 
-.left_side_template .area_links_template nav ul li a {
-    display: block;
+.left_side_template .area_links_template .link_item a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: var(--text-color-primary);
-    margin-bottom: 20px;
-    font-size: 18px;
     transition: .3s;
+    font-size: 18px;
 }
 
-.left_side_template .area_links_template nav ul li a:hover {
+.left_side_template .area_links_template .link_item a:hover,
+.left_side_template .area_links_template .link_item a.active {
     color: var(--color-primary);
 }
 
-.left_side_template .area_links_template nav ul li a i {
-    margin-right: 20px;
+.left_side_template .area_links_template .link_item a .icon {
+    width: 25%;
+}
+
+.left_side_template .area_links_template .link_item a .icon i {
+    font-size: 20px;
 }
 
 .container_single {
     width: 100%;
+    margin-left: 230px;
 }
 
 .container_single .area_static {
@@ -93,6 +104,34 @@ body {
     gap: 30px;
 }
 
+.container_single .area_static .right_side .profile_popup {
+    display: none;
+    width: 150px;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: var(--border-default);
+    padding: 20px 20px 10px 20px;
+}
+
+.container_single .area_static .right_side .profile_popup .area_links_popup a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color-primary);
+    transition: .3s;
+    margin-bottom: 20px;
+}
+
+.container_single .area_static .right_side .profile_popup .area_links_popup a:hover {
+    color: var(--color-primary);
+}
+
+.container_single .area_static .right_side .profile_popup .area_links_popup a i {
+    margin-right: 10px;
+}
+
 .container_single .area_static .right_side .link_add_page a {
     text-decoration: none;
     color: #fff;
@@ -108,11 +147,7 @@ body {
     cursor: pointer;
 }
 
-/* css page index(home) */
-.section_home {
-    padding: 36px 20px;
-}
-
+/* css section page index(home) */
 .section_home .area_example_items {
     display: grid;
     grid-template-columns: repeat(auto-fill, 215px);
@@ -126,4 +161,142 @@ body {
     border-radius: 10px;
     box-shadow: var(--box-shadow-default);
     object-fit: cover;
+}
+
+/* css section page list */
+.section_pages_list .area_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section_pages_list .area_title .area_btn_add_page a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--text-color-primary);
+    border-radius: 10px;
+    border: var(--border-default);
+    padding: 7px 20px;
+}
+
+.section_pages_list .area_title .area_btn_add_page a i {
+    margin-right: 10px;
+}
+
+.section_pages_list .area_table_list table {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px 10px 0 0;
+    border: var(--border-default);
+}
+
+.section_pages_list .area_table_list table thead tr th,
+.section_pages_list .area_table_list table tbody tr td {
+    font-weight: var(--font-weight-default);
+    text-align: start;
+    padding: 8px 20px;
+}
+
+.section_pages_list .area_table_list table thead tr th:last-child {
+    width: 100px;
+}
+
+.section_pages_list .area_table_list table tbody tr {
+    position: relative;
+}
+
+.section_pages_list .area_table_list table tbody tr td {
+    border-top: var(--border-default);
+}
+
+.section_pages_list .area_table_list table tbody tr td img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.section_pages_list .area_table_list table tbody tr td:nth-child(1) {
+    display: flex;
+    align-items: center;
+}
+
+.section_pages_list .area_table_list table tbody tr td:nth-child(3) {
+    text-align: center;
+}
+
+.section_pages_list .area_table_list table tbody tr td:nth-child(3) .area_toggle_icon {
+    cursor: pointer;
+}
+
+.section_pages_list .area_table_list table tbody tr td:nth-child(4) {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    z-index: 99;
+    width: 247px;
+    height: 220px;
+    border-radius: 10px;
+    border: var(--border-default);
+    background-color: #fff;
+}
+
+.section_pages_list .area_table_list table tbody tr td:nth-child(4) .content_modal {
+    padding: 15px 0;
+}
+
+.section_pages_list .area_table_list table tbody tr td:nth-child(4) .content_modal .link_item_modal {
+    padding-bottom: 15px;
+}
+
+.section_pages_list .area_table_list table tbody tr td:nth-child(4) .content_modal .link_item_modal a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color-primary);
+    font-size: 18px;
+    transition: .3s;
+}
+
+.section_pages_list .area_table_list table tbody tr td:nth-child(4) .content_modal .link_item_modal a:hover {
+    color: var(--color-primary);
+}
+
+.section_pages_list .area_table_list table tbody tr td:nth-child(4) .content_modal .link_item_modal a .left {
+    width: 25%;
+}
+
+/* css section add page */
+.section_add_page .area_form {
+    background-color: #fff;
+    border: var(--border-default);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.section_add_page .area_form form label {
+    font-size: 20px;
+}
+
+.section_add_page .area_form form input {
+    width: 100%;
+    border: var(--border-default);
+    border-radius: 10px;
+    padding: 17px 20px;
+    font-size: 17px;
+    color: var(--text-color-primary);
+    margin: 20px 0;
+    outline: 0;
+}
+
+.section_add_page .area_form form input[type="submit"] {
+    width: 130px;
+    font-size: 17px;
+    color: #fff;
+    background-color: var(--color-primary);
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 0;
 }

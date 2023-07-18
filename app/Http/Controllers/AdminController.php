@@ -87,13 +87,9 @@ class AdminController extends Controller
     public function index() {
         $user = Auth::user();
 
-        $pages = Page::where('id_user', $user->id)
-            ->orderBy('id', 'DESC')
-            ->get();
-
         return view('admin.index',[
-            'pages' => $pages,
-            'user' => $user
+            'user' => $user,
+            'activeMenu' => 'home'
         ]);
     }
 
@@ -384,11 +380,26 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
+    public function getPages() {
+        $user = Auth::user();
+
+        $pages = Page::where('id_user', $user->id)
+            ->orderby('id', 'DESC')
+            ->get();
+
+        return view('admin.pages',[
+            'user' => $user,
+            'pages' => $pages,
+            'activeMenu' => 'pages'
+        ]);
+    }
+
     public function addPage() {
         $user = Auth::user();
 
-        return view('admin.page_addpage',[
-            'user' => $user
+        return view('admin.addpage',[
+            'user' => $user,
+            'activeMenu' => ''
         ]);
     }
 
@@ -396,16 +407,16 @@ class AdminController extends Controller
         $user = Auth::user();
 
         $fields = $request->validate([
-            'name_page' => ['required'],
-            'title_page' => ['required'],
-            'desc_page' => ['required']
+            'pageName' => ['required'],
+            'pageTitle' => ['required'],
+            'pageDescription' => ['required']
         ]);
 
         $newPage = new Page();
         $newPage->id_user = $user->id;
-        $newPage->slug = strtolower($fields['name_page']);
-        $newPage->op_title = $fields['title_page'];
-        $newPage->op_description = $fields['desc_page'];
+        $newPage->slug = strtolower($fields['pageName']);
+        $newPage->op_title = $fields['pageTitle'];
+        $newPage->op_description = $fields['pageDescription'];
         $newPage->save();
 
         return redirect('/admin');
@@ -424,7 +435,8 @@ class AdminController extends Controller
             return view('admin.page_editpage',[
                 'page' => $page,
                 'colors' => $colors,
-                'user' => $user
+                'user' => $user,
+                'activeMenu' => ''
             ]);
         }else {
             return redirect('/admin');

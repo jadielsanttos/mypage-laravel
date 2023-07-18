@@ -5,21 +5,31 @@ document.querySelector('.icon_menu').addEventListener('click', () => {
 
     if(menu.style.display === 'none') {
         menu.style.display = 'block';
+        areaTotal.style.marginLeft = '230px';
     }else {
         menu.style.display = 'none';
+        areaTotal.style.marginLeft = '0';
     }
 });
 
 // function toggle modal profile
-document.querySelector('.area_icon_profile').addEventListener('click', () => {
-    let modal = document.querySelector('.modal_options_to_user');
+document.querySelector('.profile_img img').addEventListener('click', () => {
+    let modal = document.querySelector('.profile_popup');
 
     if(modal.style.display === 'block') {
         modal.style.display = 'none';
     }else {
         modal.style.display = 'block';
+        setTimeout(() => {
+            document.addEventListener('click', closeModalProfile);
+        }, 200);
     }
 });
+
+function closeModalProfile() {
+    document.querySelector('.profile_popup').style.display = 'none';
+    document.removeEventListener('click', closeModalProfile);
+}
 
 // function open modal profile-img
 document.querySelector('.btn_open_modal').addEventListener('click', () => {
@@ -46,5 +56,3 @@ document.querySelector('.close_modal').addEventListener('click', () => {
     }, 200);
 
 });
-
-
