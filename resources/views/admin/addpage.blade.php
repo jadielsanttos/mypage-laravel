@@ -11,15 +11,15 @@
             <div class="form_add_page">
                 <form method="post">
                     <label for="Nome da página">Nome da página</label>
-                    <input type="text" name="pageName" placeholder="O que vai ficar na URL...">
+                    <input type="text" name="slug" placeholder="O que vai ficar na URL...">
 
                     <label for="Título da página">Título da página</label>
-                    <input type="text" name="pageTitle" placeholder="EX: Rock in rio">
+                    <input type="text" name="op_title" placeholder="EX: Rock in rio">
 
                     <label for="Descrição da página">Descrição da página</label>
-                    <input type="text" name="pageDescription" placeholder="EX: Acompanhe nossos principais canais">
+                    <input type="text" name="op_description" placeholder="EX: Acompanhe nossos principais canais">
 
-                    <input type="submit" value="Adicionar">
+                    <input type="submit" value="Adicionar" class="btn_primary">
                 </form>
             </div>
         </div>

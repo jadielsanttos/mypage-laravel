@@ -29,8 +29,26 @@ body {
     margin-bottom: 35px;
 }
 
-.section_home, .section_pages_list, .section_add_page {
+.subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.section_home, .section_pages_list, .section_add_page,
+.section_edit_page, .section_links_list {
     padding: 36px 20px;
+}
+
+.btn_primary {
+    width: 130px;
+    font-size: 17px;
+    color: #fff;
+    background-color: var(--color-primary);
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 10px;
 }
 
 /* css template */
@@ -280,7 +298,7 @@ body {
     font-size: 20px;
 }
 
-.section_add_page .area_form form input {
+.section_add_page .area_form form input[type="text"] {
     width: 100%;
     border: var(--border-default);
     border-radius: 10px;
@@ -291,12 +309,135 @@ body {
     outline: 0;
 }
 
-.section_add_page .area_form form input[type="submit"] {
-    width: 130px;
-    font-size: 17px;
-    color: #fff;
-    background-color: var(--color-primary);
-    padding: 10px 20px;
-    cursor: pointer;
-    border: 0;
+/* css secton edit page */
+.section_edit_page .area_form_global .form_single .area_first_session {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border: var(--border-default);
+    border-radius: 10px;
+    padding: 50px 20px;
+    margin-bottom: 30px;
 }
+
+.section_edit_page .area_form_global .form_single .area_first_session .area_upload_img .area_img img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.section_edit_page .area_form_global .form_single .area_first_session .area_upload_img .area_img label input[type="file"] {
+    display: none;
+}
+
+.section_edit_page .area_form_global .form_single .area_first_session .area_upload_img .area_img label {
+    display: block;
+    padding: 12px 16px;
+    font-size: 17px;
+    background-color: #fff;
+    color: var(--text-color-primary);
+    border: var(--border-default);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.section_edit_page .area_form_global .form_single .area_first_session .area_inputs .row_1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.section_edit_page .area_form_global .form_single .area_first_session .area_inputs .row_1 label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.section_edit_page .area_form_global .form_single .area_first_session .area_inputs {
+    width: 70%;
+}
+
+.section_edit_page .area_form_global .form_single .area_first_session .area_inputs .row_1 label input {
+    width: 100%;
+    border: var(--border-default);
+    border-radius: 10px;
+    padding: 17px 20px;
+    font-size: 17px;
+    color: var(--text-color-primary);
+    margin: 20px 0;
+    outline: 0;
+}
+
+.section_edit_page .area_form_global .form_single .area_first_session .area_inputs .row_2 label {
+    font-size: 20px;
+}
+
+.section_edit_page .area_form_global .form_single .area_first_session .area_inputs .row_2 label input {
+    width: 100%;
+    border: var(--border-default);
+    border-radius: 10px;
+    padding: 17px 20px;
+    font-size: 17px;
+    color: var(--text-color-primary);
+    margin: 20px 0;
+    outline: 0;
+}
+
+.section_edit_page .area_form_global .form_single .area_second_session {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: var(--border-default);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.section_edit_page .area_form_global .form_single .area_second_session {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.section_edit_page .area_form_global .form_single .area_second_session .col_item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.section_edit_page .area_form_global .form_single .area_second_session .col_item label {
+    font-size: 20px;
+}
+
+.section_edit_page .area_form_global .form_single .area_second_session .col_item input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.section_edit_page .area_form_global .form_single .area_second_session .col_item input[type="color"]::-webkit-color-swatch {
+    border-radius: 10px;
+}
+
+.section_edit_page .area_form_global .form_single .area_input_save .input_save {
+    margin-top: 35px;
+    padding: 15px 16px;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 17px;
+    border: 0;
+    cursor: pointer;
+}
+
+/* css section page links */

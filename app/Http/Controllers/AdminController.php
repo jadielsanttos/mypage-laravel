@@ -162,11 +162,12 @@ class AdminController extends Controller
                 ->orderBy('order', 'ASC')
                 ->get();
 
-            return view('admin.page_links',[
+            return view('admin.links',[
                 'menu' => 'links',
                 'page' => $page,
                 'links' => $links,
-                'user' => $user
+                'user' => $user,
+                'activeMenu' => ''
             ]);
         }else {
             return redirect('/admin');
@@ -288,7 +289,7 @@ class AdminController extends Controller
 
     }
 
-    public function editLink($slug, $linkid) {
+    public function editLink($slug, $linkID) {
         $user = Auth::user();
         $page = Page::where('id_user', $user->id)
             ->where('slug', $slug)
@@ -296,7 +297,7 @@ class AdminController extends Controller
 
         if($page) {
             $link = Link::where('id_page', $page->id)
-                ->where('id', $linkid)
+                ->where('id', $linkID)
                 ->first();
 
             if($link) {
@@ -312,7 +313,7 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
-    public function editLinkAction($slug, $linkid, Request $request) {
+    public function editLinkAction($slug, $linkID, Request $request) {
         $user = Auth::user();
         $page = Page::where('id_user', $user->id)
             ->where('slug', $slug)
@@ -320,7 +321,7 @@ class AdminController extends Controller
 
         if($page) {
             $link = Link::where('id_page', $page->id)
-                ->where('id', $linkid)
+                ->where('id', $linkID)
                 ->first();
 
             if($link) {
@@ -350,7 +351,7 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
-    public function delLink($slug, $linkid) {
+    public function delLink($slug, $linkID) {
         $user = Auth::user();
         $page = Page::where('id_user', $user->id)
             ->where('slug', $slug)
@@ -358,7 +359,7 @@ class AdminController extends Controller
 
         if($page) {
             $link = Link::where('id_page', $page->id)
-                ->where('id', $linkid)
+                ->where('id', $linkID)
                 ->first();
 
             if($link) {
@@ -407,16 +408,16 @@ class AdminController extends Controller
         $user = Auth::user();
 
         $fields = $request->validate([
-            'pageName' => ['required'],
-            'pageTitle' => ['required'],
-            'pageDescription' => ['required']
+            'slug' => ['required'],
+            'op_title' => ['required'],
+            'op_description' => ['required']
         ]);
 
         $newPage = new Page();
         $newPage->id_user = $user->id;
-        $newPage->slug = strtolower($fields['pageName']);
-        $newPage->op_title = $fields['pageTitle'];
-        $newPage->op_description = $fields['pageDescription'];
+        $newPage->slug = strtolower($fields['slug']);
+        $newPage->op_title = $fields['op_title'];
+        $newPage->op_description = $fields['op_description'];
         $newPage->save();
 
         return redirect('/admin');
@@ -432,7 +433,7 @@ class AdminController extends Controller
         if($page) {
             $colors = explode(',', $page->op_bg_value);
 
-            return view('admin.page_editpage',[
+            return view('admin.editpage',[
                 'page' => $page,
                 'colors' => $colors,
                 'user' => $user,
@@ -497,10 +498,10 @@ class AdminController extends Controller
 
         if($page) {
             $page->delete();
-            return redirect('/admin');
+            return redirect('/admin/pages');
         }else {
             echo "<script>alert('Algo deu errado')</script>";
-            echo "<script>window.location.href = '/admin'</script>";
+            echo "<script>window.location.href = '/admin/pages'</script>";
         }
     }
 

@@ -12,7 +12,7 @@ document.querySelector('.icon_menu').addEventListener('click', () => {
     }
 });
 
-// function toggle modal profile
+// function toggle modal profile user
 document.querySelector('.profile_img img').addEventListener('click', () => {
     let modal = document.querySelector('.profile_popup');
 
@@ -31,7 +31,7 @@ function closeModalProfile() {
     document.removeEventListener('click', closeModalProfile);
 }
 
-// function open modal profile-img
+// function open modal profile img page
 document.querySelector('.btn_open_modal').addEventListener('click', () => {
     document.querySelector('.modal_upload_img').style.opacity = '0';
     document.querySelector('.shadow_modal').style.opacity = '0';
@@ -45,7 +45,7 @@ document.querySelector('.btn_open_modal').addEventListener('click', () => {
 
 });
 
-// function close modal profile-img
+// function close modal profile img page
 document.querySelector('.close_modal').addEventListener('click', () => {
     document.querySelector('.modal_upload_img').style.opacity = '1';
     document.querySelector('.shadow_modal').style.opacity = '1';

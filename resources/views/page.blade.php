@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{url('assets/css/page.css')}}">
     <link rel="shortcut icon" href="{{url('assets/images/favicon-oficial.png')}}" type="image/x-icon">
-    <title>{{$title}} | MyPage</title>
+    <title>MyPage | {{$title}}</title>
 </head>
 <body style="background: {{$bg}};height:100vh;">
 
