@@ -1,13 +1,13 @@
 @extends('admin.template')
 
-@section('title', 'MyPage - Suas páginas')
+@section('title', 'MyPage - Minhas páginas')
 
 @section('content')
     <div class="section_pages_list">
         <div class="area_title">
-            <h1 class="title">Suas páginas</h1>
+            <h1 class="title">Minhas páginas</h1>
             <div class="area_btn_add_page">
-                <a href="{{url('/admin/addpage')}}"><i class="fa-solid fa-plus"></i> Adicionar</a>
+                <a class="btn_secondary" href="{{url('/admin/addpage')}}"><i class="fa-solid fa-plus"></i> Adicionar</a>
             </div>
         </div>
         <div class="area_table_list">

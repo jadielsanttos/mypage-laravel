@@ -167,7 +167,7 @@ class AdminController extends Controller
                 'page' => $page,
                 'links' => $links,
                 'user' => $user,
-                'activeMenu' => ''
+                'activeMenu' => 'links'
             ]);
         }else {
             return redirect('/admin');
@@ -241,10 +241,11 @@ class AdminController extends Controller
 
         if($page) {
 
-            return view('admin.page_editlink',[
+            return view('admin.editlink',[
                 'menu' => 'links',
                 'page' => $page,
-                'user' => $user
+                'user' => $user,
+                'activeMenu' => 'links'
             ]);
 
         }else {
@@ -301,11 +302,11 @@ class AdminController extends Controller
                 ->first();
 
             if($link) {
-                return view('admin.page_editlink',[
-                    'menu' => 'links',
+                return view('admin.editlink',[
                     'page' => $page,
                     'link' => $link,
-                    'user' => $user
+                    'user' => $user,
+                    'activeMenu' => 'links'
                 ]);
             }
         }
@@ -343,7 +344,7 @@ class AdminController extends Controller
                 $link->op_border_type = $fields['op_border_type'];
                 $link->save();
 
-                return redirect('/admin/'.$page->slug.'/links');
+                return redirect('/admin/'.$page->slug.'/newlink');
 
             }
         }

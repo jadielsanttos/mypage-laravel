@@ -28,6 +28,15 @@
                     <div class="icon"><i class="fa-regular fa-file-lines"></i></div>
                     <div class="link_text"><span>Páginas</span></div>
                 </a>
+
+                @if($activeMenu === 'links')
+                    <div class="area_sub_menu">
+                        <ul>
+                            <li><a href="{{url('/admin/'.$page->slug.'/links')}}" @if($activeMenu==='links') class="active" @endif>Links</a></li>
+                            <li><a href="{{url('/admin/'.$page->slug.'/stats')}}" @if($activeMenu==='stats') class="active" @endif>Estatísticas</a></li>
+                        </ul>
+                    </div>
+                @endif
             </div>
             <div class="link_item">
                 <a href="{{url('/admin/profile/'.$user->id)}}" @if($activeMenu==='profile') class="active" @endif>

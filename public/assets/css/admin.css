@@ -36,7 +36,7 @@ body {
 }
 
 .section_home, .section_pages_list, .section_add_page,
-.section_edit_page, .section_links_list {
+.section_edit_page, .section_links_list, .section_edit_link {
     padding: 36px 20px;
 }
 
@@ -49,6 +49,22 @@ body {
     cursor: pointer;
     border: 0;
     border-radius: 10px;
+}
+
+.btn_secondary {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--text-color-primary);
+    border-radius: 10px;
+    border: var(--border-default);
+    padding: 7px 20px;
+}
+
+.area_title {
+    display: flex;
+    justify-content: space-between;
 }
 
 /* css template */
@@ -91,6 +107,25 @@ body {
     font-size: 20px;
 }
 
+.left_side_template .area_links_template .link_item:nth-child(2) .area_sub_menu {
+    display: flex;
+    justify-content: center;
+}
+
+.left_side_template .area_links_template .link_item:nth-child(2) .area_sub_menu ul {
+    list-style: none;
+}
+
+.left_side_template .area_links_template .link_item:nth-child(2) .area_sub_menu ul li a {
+    display: block;
+    margin-top: 20px;
+    transition: .3s;
+}
+
+.left_side_template .area_links_template .link_item:nth-child(2) .area_sub_menu ul li a:hover {
+    color: var(--color-primary);
+}
+
 .container_single {
     width: 100%;
     margin-left: 230px;
@@ -128,10 +163,11 @@ body {
     position: absolute;
     top: 80px;
     right: 20px;
+    z-index: 99;
     background-color: #fff;
     border-radius: 10px;
     border: var(--border-default);
-    padding: 20px 20px 10px 20px;
+    padding: 20px 20px 0 20px;
 }
 
 .container_single .area_static .right_side .profile_popup .area_links_popup a {
@@ -182,22 +218,6 @@ body {
 }
 
 /* css section page list */
-.section_pages_list .area_title {
-    display: flex;
-    justify-content: space-between;
-}
-
-.section_pages_list .area_title .area_btn_add_page a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    background-color: transparent;
-    color: var(--text-color-primary);
-    border-radius: 10px;
-    border: var(--border-default);
-    padding: 7px 20px;
-}
-
 .section_pages_list .area_title .area_btn_add_page a i {
     margin-right: 10px;
 }
@@ -313,6 +333,7 @@ body {
 .section_edit_page .area_form_global .form_single .area_first_session {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     background-color: #fff;
     border: var(--border-default);
     border-radius: 10px;
@@ -348,6 +369,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -389,19 +411,16 @@ body {
 }
 
 .section_edit_page .area_form_global .form_single .area_second_session {
-    width: 70%;
+    max-width: 700px;
+    width: 100%;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     background-color: #fff;
     border: var(--border-default);
     border-radius: 10px;
     padding: 20px;
-}
-
-.section_edit_page .area_form_global .form_single .area_second_session {
-    display: flex;
-    align-items: center;
-    gap: 50px;
+    gap: 20px;
 }
 
 .section_edit_page .area_form_global .form_single .area_second_session .col_item {
@@ -441,3 +460,167 @@ body {
 }
 
 /* css section page links */
+.section_links_list .area_title .area_btn_add_link a i {
+    margin-right: 10px;
+}
+
+.section_links_list .area_list .list_item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-default);
+    margin-bottom: 15px;
+}
+
+.section_links_list .area_list .list_item .left_side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section_links_list .area_list .list_item .left_side .area_icon_sort {
+    margin-right: 20px;
+    padding: 5px;
+    cursor: grab;
+}
+
+.section_links_list .area_list .list_item .left_side .area_info_content .link_title h3 {
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.section_links_list .area_list .list_item .left_side .area_info_content .link_url span {
+    color: var(--text-color-secondary);
+    font-size: 16px;
+}
+
+.section_links_list .area_list .list_item .right_side .area_icon_options {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.section_links_list .area_list .list_item .popup_link_item {
+    display: none;
+    width: 150px;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    z-index: 99;
+    background-color: #fff;
+    border-radius: 10px;
+    border: var(--border-default);
+    box-shadow: var(--box-shadow-default);
+}
+
+.section_links_list .area_list .list_item .popup_link_item .area_links_popup {
+    padding: 20px 20px 10px 20px;
+}
+
+.section_links_list .area_list .list_item .popup_link_item .area_links_popup ul {
+    list-style: none;
+}
+
+.section_links_list .area_list .list_item .popup_link_item .area_links_popup ul li a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color-primary);
+    margin-bottom: 15px;
+    transition: .3s;
+}
+
+.section_links_list .area_list .list_item .popup_link_item .area_links_popup ul li a:hover {
+    color: var(--color-primary);
+}
+
+.section_links_list .area_list .list_item .popup_link_item .area_links_popup ul li a i {
+    margin-right: 10px;
+}
+
+/* css section edit link */
+.section_edit_link .area_form_global_edit_link .area_first_card {
+    background-color: #fff;
+    border: var(--border-default);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 35px;
+}
+
+.section_edit_link .area_form_global_edit_link .area_first_card .row_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.section_edit_link .area_form_global_edit_link .area_first_card .row_item label {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.section_edit_link .area_form_global_edit_link .area_first_card .row_item label select,
+.section_edit_link .area_form_global_edit_link .area_first_card .row_item label input {
+    border-radius: 10px;
+    border: var(--border-default);
+    padding: 17px 20px;
+    font-size: 17px;
+    color: var(--text-color-primary);
+    margin: 20px 0;
+    outline: 0;
+}
+
+
+.section_edit_link .area_form_global_edit_link .area_second_card {
+    max-width: 491px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border: var(--border-default);
+    border-radius: 10px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.section_edit_link .area_form_global_edit_link .area_second_card .info_color_item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.section_edit_link .area_form_global_edit_link .area_second_card .info_color_item label {
+    font-size: 20px;
+}
+
+.section_edit_link .area_form_global_edit_link .area_second_card .info_color_item input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.section_edit_link .area_form_global_edit_link .area_second_card .info_color_item input[type="color"]::-webkit-color-swatch {
+    border-radius: 10px;
+}
+
+.section_edit_link .area_form_global_edit_link .area_btn_save input {
+    margin-top: 35px;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 10px;
+    padding: 17px 20px;
+    border: 0;
+    font-size: 17px;
+    cursor: pointer;
+}
