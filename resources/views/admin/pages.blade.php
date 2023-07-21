@@ -10,65 +10,72 @@
                 <a class="btn_secondary" href="{{url('/admin/addpage')}}"><i class="fa-solid fa-plus"></i> Adicionar</a>
             </div>
         </div>
-        <div class="area_table_list">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Editado</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($pages as $page)
+
+        @if(count($pages) > 0)
+            <div class="area_table_list">
+                <table>
+                    <thead>
                         <tr>
-                            <td>
-                                <a href="{{url('/'.$page->slug)}}" target="_blank">
-                                    <img src="{{url('storage/'.$page->op_profile_image)}}" alt="Imagem da página">
-                                </a>
-                                <span>{{$page->op_title}}</span>
-                            </td>
-                            <td>2 minutos atrás...</td>
-                            <td data-id="{{$page->id}}"><div class="area_toggle_icon"><i class="fa-solid fa-ellipsis-vertical"></i></div></td>
-                            <td data-id="{{$page->id}}" class="single_td">
-                                <div class="content_modal">
-                                    <div class="link_item_modal">
-                                        <a href="{{url('/'.$page->slug)}}" target="_blank">
-                                            <div class="left"><i class="fa-regular fa-eye"></i></div>
-                                            <div class="right"><span>Ver página</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="link_item_modal">
-                                        <a href="{{url('/admin/'.$page->slug.'/links')}}">
-                                            <div class="left"><i class="fa-solid fa-link"></i></div>
-                                            <div class="right"><span>Links</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="link_item_modal">
-                                        <a href="{{url('/admin/'.$page->slug.'/stats')}}">
-                                            <div class="left"><i class="fa-solid fa-chart-simple"></i></div>
-                                            <div class="right"><span>Estatísticas</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="link_item_modal">
-                                        <a href="{{url('/admin/'.$page->slug.'/editpage/'.$page->id)}}">
-                                            <div class="left"><i class="fa-solid fa-pen"></i></div>
-                                            <div class="right"><span>Editar</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="link_item_modal">
-                                        <a href="{{url('/admin/'.$page->slug.'/delpage/'.$page->id)}}" onclick="return confirm('Tem certeza que deseja excluir?')">
-                                            <div class="left"><i class="fa-solid fa-trash"></i></div>
-                                            <div class="right"><span>Deletar</span></div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
+                            <th>Título</th>
+                            <th>Editado</th>
+                            <th>Ações</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        @foreach ($pages as $page)
+                            <tr>
+                                <td>
+                                    <a href="{{url('/'.$page->slug)}}" target="_blank">
+                                        <img src="{{url('storage/'.$page->op_profile_image)}}" alt="Imagem da página">
+                                    </a>
+                                    <span>{{$page->op_title}}</span>
+                                </td>
+                                <td>2 minutos atrás...</td>
+                                <td data-id="{{$page->id}}"><div class="area_toggle_icon"><i class="fa-solid fa-ellipsis-vertical"></i></div></td>
+                                <td data-id="{{$page->id}}" class="single_td">
+                                    <div class="content_modal">
+                                        <div class="link_item_modal">
+                                            <a href="{{url('/'.$page->slug)}}" target="_blank">
+                                                <div class="left"><i class="fa-regular fa-eye"></i></div>
+                                                <div class="right"><span>Ver página</span></div>
+                                            </a>
+                                        </div>
+                                        <div class="link_item_modal">
+                                            <a href="{{url('/admin/'.$page->slug.'/links')}}">
+                                                <div class="left"><i class="fa-solid fa-link"></i></div>
+                                                <div class="right"><span>Links</span></div>
+                                            </a>
+                                        </div>
+                                        <div class="link_item_modal">
+                                            <a href="{{url('/admin/'.$page->slug.'/stats')}}">
+                                                <div class="left"><i class="fa-solid fa-chart-simple"></i></div>
+                                                <div class="right"><span>Estatísticas</span></div>
+                                            </a>
+                                        </div>
+                                        <div class="link_item_modal">
+                                            <a href="{{url('/admin/'.$page->slug.'/editpage/'.$page->id)}}">
+                                                <div class="left"><i class="fa-solid fa-pen"></i></div>
+                                                <div class="right"><span>Editar</span></div>
+                                            </a>
+                                        </div>
+                                        <div class="link_item_modal">
+                                            <a href="{{url('/admin/'.$page->slug.'/delpage/'.$page->id)}}" onclick="return confirm('Tem certeza que deseja excluir?')">
+                                                <div class="left"><i class="fa-solid fa-trash"></i></div>
+                                                <div class="right"><span>Deletar</span></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @else
+            <div class="not_found_pages">
+                <span>Você ainda não possui nenhuma página, deseja criar agora? <a href="{{url('/admin/addpage')}}">Clique aqui</a></span>
+            </div>
+        @endif
     </div>
 
     <script>

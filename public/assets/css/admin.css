@@ -36,7 +36,8 @@ body {
 }
 
 .section_home, .section_pages_list, .section_add_page,
-.section_edit_page, .section_links_list, .section_edit_link {
+.section_edit_page, .section_links_list, .section_edit_link,
+.section_page_stats, .section_profile_user {
     padding: 36px 20px;
 }
 
@@ -306,6 +307,16 @@ body {
     width: 25%;
 }
 
+.section_pages_list .not_found_pages span a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: .3s;
+}
+
+.section_pages_list .not_found_pages span a:hover {
+    text-decoration: underline;
+}
+
 /* css section add page */
 .section_add_page .area_form {
     background-color: #fff;
@@ -369,7 +380,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -623,4 +633,142 @@ body {
     border: 0;
     font-size: 17px;
     cursor: pointer;
+}
+
+/* css section page stats */
+.section_page_stats .area_title_stats h1 {
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.section_page_stats .area_title_stats h4 {
+    font-weight: 400;
+    font-size: 17px;
+    color: #333;
+    margin-top: 5px;
+    margin-bottom: 35px;
+}
+
+.section_page_stats .area_content_stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 350px);
+    gap: 20px;
+    padding-bottom: 35px;
+}
+
+.section_page_stats .area_content_stats .stats_item {
+    width: 350px;
+    padding: 30px 20px;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-default);
+}
+
+.section_page_stats .area_content_stats .stats_item:nth-child(1) {
+    background-color: #AEAEFF;
+}
+
+.section_page_stats .area_content_stats .stats_item:nth-child(2) {
+    background-color: #9CCD76;
+}
+
+.section_page_stats .area_content_stats .stats_item:nth-child(3) {
+    background-color: #CD7676;
+}
+
+.section_page_stats .area_content_stats .stats_item .area_content_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.section_page_stats .area_content_stats .stats_item .area_content_top .views_data h1 {
+    font-weight: 400;
+    font-size: 45px;
+}
+
+
+.section_page_stats .area_content_stats .stats_item .area_content_top .area_icon i {
+    font-size: 45px;
+}
+
+
+.section_page_stats .area_content_stats .stats_item .area_content_bottom p {
+    font-size: 20px;
+}
+
+/* css section profile user */
+.section_profile_user .area_profile_user .area_card_inputs {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 10px;
+    border: var(--border-default);
+    padding: 50px 20px;
+}
+
+.section_profile_user .area_profile_user .area_card_inputs .area_form_left img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.section_profile_user .area_profile_user .area_card_inputs .area_form_left label {
+    display: block;
+    border-radius: 10px;
+    border: var(--border-default);
+    padding: 15px;
+    font-size: 17px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.section_profile_user .area_profile_user .area_card_inputs .area_form_left label input[type="file"] {
+    display: none;
+}
+
+.section_profile_user .area_profile_user .area_card_inputs .area_form_right {
+    width: 70%;
+}
+
+.section_profile_user .area_profile_user .area_card_inputs .area_form_right .row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.section_profile_user .area_profile_user .area_card_inputs .area_form_right .row label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.section_profile_user .area_profile_user .area_card_inputs .area_form_right .row label input {
+    width: 100%;
+    border: var(--border-default);
+    border-radius: 10px;
+    padding: 17px 20px;
+    font-size: 17px;
+    outline: 0;
+    margin: 20px 0;
+}
+
+.section_profile_user .area_profile_user .area_card_inputs .area_form_right .row label input[type="email"]:hover {
+    cursor: not-allowed;
+}
+
+.section_profile_user .area_profile_user form .area_input_save input {
+    margin-top: 35px;
+    padding: 15px 16px;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 17px;
+    border: 0;
+    cursor: pointer
 }

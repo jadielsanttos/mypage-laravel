@@ -20,7 +20,6 @@ Route::prefix('/admin')->group(function(){
 
     Route::get('/profile/{userId}', [AdminController::class, 'profileUser'])->name('profile.user');
     Route::post('/profile/{userId}', [AdminController::class, 'profileUserEditAction'])->name('profileEdit.action');
-    Route::post('/profile/{userId}/upload', [AdminController::class, 'uploadProfileImg'])->name('upload.profileImg');
 
     Route::get('/pages', [AdminController::class, 'getPages'])->name('getPages');
     Route::get('/addpage', [AdminController::class, 'addPage'])->name('addPage');

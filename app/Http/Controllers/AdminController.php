@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Click;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -12,7 +11,7 @@ use App\Models\User;
 use App\Models\Page;
 use App\Models\Link;
 use App\Models\View;
-use Illuminate\Queue\RedisQueue;
+use App\Models\Click;
 
 class AdminController extends Controller
 {
@@ -97,8 +96,9 @@ class AdminController extends Controller
         $user = Auth::user();
 
         if($userID == $user->id) {
-            return view('admin.page_profile', [
-                'user' => $user
+            return view('admin.profile', [
+                'user' => $user,
+                'activeMenu' => 'profile'
             ]);
         }else {
             return redirect('/admin');
@@ -111,6 +111,13 @@ class AdminController extends Controller
 
         if($user->id == $userID) {
             $userEdit = User::where('id', $userID)->first();
+
+            if($request->hasFile('profileImgEdit')) {
+                if($userEdit->profile_img != null) {
+                    Storage::disk('public')->delete($userEdit->profile_img);
+                }
+                $userEdit->profile_img = $request->file('profileImgEdit')->store('imagesProfileUser', 'public');
+            }
 
             if(!$request['nameEdit'] == '') {
                 $userEdit->name = $request['nameEdit'];
@@ -128,27 +135,6 @@ class AdminController extends Controller
             return redirect('/admin');
         }
 
-    }
-
-    public function uploadProfileImg($userID, Request $request) {
-        $user = Auth::user();
-
-        if($user->id == $userID) {
-
-            $userUpload = User::where('id', $userID)->first();
-
-            if($request->hasFile('profileImgEdit')) {
-                if($userUpload->profile_img != null) {
-                    Storage::disk('public')->delete($user->profile_img);
-                }
-                $userUpload->profile_img = $request->file('profileImgEdit')->store('imagesProfileUser', 'public');
-                $userUpload->save();
-
-                return redirect('/admin/profile/'.$user->id);
-            }
-        }
-
-        return redirect('/admin');
     }
 
     public function pageLinks($slug) {
@@ -520,12 +506,19 @@ class AdminController extends Controller
             // puxando os clicks nos links da página
             $clicks = Click::where('id_page', $page->id)->sum('total');
 
-            return view('admin.page_stats',[
-                'menu' => 'stats',
+            // puxando as páginas que mais receberam acesso dentro de X período
+            $dateLimit = date('Y-m-d H:i:s', strtotime('- 2880 minutes'));
+            $mostViews = View::where('view_date', '>', $dateLimit)
+                ->where('id_page', $page->id)
+                ->sum('total');
+
+            return view('admin.stats',[
                 'page' => $page,
                 'views' => $views,
                 'clicks' => $clicks,
-                'user' => $user
+                'user' => $user,
+                'mostViews' => $mostViews,
+                'activeMenu' => 'stats'
             ]);
         }else {
             return redirect('/admin');

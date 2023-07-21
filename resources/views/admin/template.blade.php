@@ -29,7 +29,7 @@
                     <div class="link_text"><span>Páginas</span></div>
                 </a>
 
-                @if($activeMenu === 'links')
+                @if($activeMenu === 'links' || $activeMenu === 'stats')
                     <div class="area_sub_menu">
                         <ul>
                             <li><a href="{{url('/admin/'.$page->slug.'/links')}}" @if($activeMenu==='links') class="active" @endif>Links</a></li>
@@ -55,7 +55,7 @@
                     <a href="{{url('/admin/addpage')}}">Criar página</a>
                 </div>
                 <div class="profile_img">
-                    <img src="{{url('storage/'.$user->profile_img)}}" alt="Imagem de perfil">
+                    <img src="{{$user->profile_img === null ? url('/media/default.png') : url('storage/'.$user->profile_img)}}" alt="Imagem de perfil">
                 </div>
                 <div class="profile_popup">
                     <div class="arrow_up"></div>
