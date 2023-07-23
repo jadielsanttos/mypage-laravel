@@ -37,7 +37,7 @@ class AdminController extends Controller
         if(Auth::attempt($creds)) {
             return redirect('/admin');
         }else {
-            $request->session()->flash('error', 'Dados incorretos!');
+            $request->session()->flash('error', 'Dados incorretos');
             return redirect('/admin/login');
         }
     }

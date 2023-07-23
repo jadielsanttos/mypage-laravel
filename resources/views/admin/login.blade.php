@@ -14,17 +14,24 @@
     <div class="area_login">
         <div class="left_side">
             <div class="link_voltar"><a href="/"><i class="fa-solid fa-arrow-left"></i> Home</a></div>
-            <div class="title"><h1>Login</h1></div>
+            <div class="title">
+                <h1>Login</h1>
+                <div class="border_underline"></div>
+            </div>
             @if ($error)
-                <div class="error_msg">{{$error}}</div>
+                <div class="error_msg"><i class="fa-solid fa-circle-exclamation"></i> {{$error}}</div>
             @endif
             <div class="area_form">
                 <form method="post">
                     @csrf
-                    <input type="email" name="email" placeholder="Email">
-                    <input id="pass" type="password" name="password" placeholder="Senha"><span class="single_span"><i class="fa-solid fa-eye"></i></span>
+                    <label for="">Email</label>
+                    <input type="email" name="email" placeholder="Digite seu email">
+
+                    <label for="">Senha</label>
+                    <input id="pass" type="password" name="password" placeholder="Digite sua senha"><span class="single_span"><i class="fa-solid fa-eye"></i></span>
+
                     <input type="submit" name="entrar" value="Entrar">
-                    <span>Ainda não tem conta? <a href="{{url('admin/register')}}">Cadastre-se</a></span>
+                    <p>Ainda não tem conta? <a href="{{url('admin/register')}}">Cadastre-se</a></p>
                 </form>
             </div>
         </div>
@@ -33,19 +40,7 @@
         </div>
     </div>
 
-    <script>
-        document.querySelector('.single_span').addEventListener('click', () => {
-            let input = document.querySelector('#pass');
-
-            if(input.getAttribute('type') === 'text') {
-                document.querySelector('.single_span i').style.color = '#ccc';
-                input.setAttribute('type', 'password');
-            }else {
-                document.querySelector('.single_span i').style.color = '#000';
-                input.setAttribute('type', 'text');
-            }
-        });
-    </script>
+    <script src="{{url('/assets/js/login.js')}}"></script>
     <script src="https://kit.fontawesome.com/e3dc242dae.js" crossorigin="anonymous"></script>
 </body>
 </html>
