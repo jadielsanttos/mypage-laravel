@@ -11,30 +11,36 @@
             </div>
         </div>
 
-        <div class="area_list">
-            @foreach($links as $link)
-                <div class="list_item" data-id="{{$link->id}}">
-                    <div class="left_side">
-                        <div class="area_icon_sort"><i class="fa-solid fa-sort"></i></div>
-                        <div class="area_info_content">
-                            <div class="link_title"><h3>{{$link->title}}</h3></div>
-                            <div class="link_url"><span>{{$link->href}}</span></div>
+        @if(count($links) > 0)
+            <div class="area_list">
+                @foreach($links as $link)
+                    <div class="list_item" data-id="{{$link->id}}">
+                        <div class="left_side">
+                            <div class="area_icon_sort"><i class="fa-solid fa-sort"></i></div>
+                            <div class="area_info_content">
+                                <div class="link_title"><h3>{{$link->title}}</h3></div>
+                                <div class="link_url"><span>{{$link->href}}</span></div>
+                            </div>
+                        </div>
+                        <div class="right_side">
+                            <div class="area_icon_options" data-id="{{$link->id}}"><i class="fa-solid fa-ellipsis"></i></div>
+                        </div>
+                        <div class="popup_link_item" data-id="{{$link->id}}">
+                            <div class="area_links_popup">
+                                <ul>
+                                    <li><a href="{{url('/admin/'.$page->slug.'/editlink/'.$link->id)}}"><i class="fa-solid fa-pen"></i> Editar</a></li>
+                                    <li><a href="{{url('/admin/'.$page->slug.'/dellink/'.$link->id)}}" onclick="return confirm('Tem certeza que deseja excluir?')"><i class="fa-solid fa-trash"></i> Deletar</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="right_side">
-                        <div class="area_icon_options" data-id="{{$link->id}}"><i class="fa-solid fa-ellipsis"></i></div>
-                    </div>
-                    <div class="popup_link_item" data-id="{{$link->id}}">
-                        <div class="area_links_popup">
-                            <ul>
-                                <li><a href="{{url('/admin/'.$page->slug.'/editlink/'.$link->id)}}"><i class="fa-solid fa-pen"></i> Editar</a></li>
-                                <li><a href="{{url('/admin/'.$page->slug.'/dellink/'.$link->id)}}" onclick="return confirm('Tem certeza que deseja excluir?')"><i class="fa-solid fa-trash"></i> Deletar</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
+                @endforeach
+            </div>
+        @else
+            <div class="not_found_pages">
+                <span>Você ainda não possui nenhum link, deseja criar agora? <a href="{{url('/admin/'.$page->slug.'/newlink')}}">Clique aqui</a></span>
+            </div>
+        @endif
     </div>
 
 
@@ -70,7 +76,7 @@
             })
         })
 
-        // ordenação dos links
+        // requisição para reordenação dos links
         new Sortable(document.querySelector('.area_list'), {
             animation: 150,
             onEnd: async(e) => {

@@ -71,11 +71,24 @@ body {
 /* css template */
 .left_side_template {
     position: fixed;
+    z-index: 99;
     width: 230px;
     height: 100vh;
     padding: 0 20px;
     background-color: #fff;
     border-right: var(--border-default);
+}
+
+.left_side_template .area_top_template {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left_side_template .area_top_template .btn_close_sidebar i {
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .left_side_template .area_links_template {
@@ -345,6 +358,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 30px;
     background-color: #fff;
     border: var(--border-default);
     border-radius: 10px;
@@ -551,6 +565,16 @@ body {
     margin-right: 10px;
 }
 
+.section_links_list .not_found_pages span a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: .3s;
+}
+
+.section_links_list .not_found_pages span a:hover {
+    text-decoration: underline;
+}
+
 /* css section edit link */
 .section_edit_link .area_form_global_edit_link .area_first_card {
     background-color: #fff;
@@ -703,6 +727,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 30px;
     background-color: #fff;
     border-radius: 10px;
     border: var(--border-default);
@@ -771,4 +796,56 @@ body {
     font-size: 17px;
     border: 0;
     cursor: pointer
+}
+
+/* break points */
+@media (max-width: 768px) {
+    /* global */
+    .left_side_template {
+        display: none;
+    }
+    .container_single {
+        margin-left: 0;
+    }
+
+    /* section page list */
+
+    /* section add page */
+
+    /* secton edit page */
+    .section_edit_page .area_form_global .form_single .area_first_session .area_inputs {
+        width: 100%;
+    }
+    .section_edit_page .area_form_global .form_single .area_first_session .area_inputs .row_1 {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    /* section page links */
+
+    /* section edit link */
+
+    /* section page stats */
+    .section_page_stats .area_content_stats {
+        grid-template-columns: none;
+    }
+    .section_page_stats .area_content_stats .stats_item {
+        width: 100%;
+    }
+    /* section profile user */
+    .section_profile_user .area_profile_user .area_card_inputs .area_form_right {
+        width: 100%;
+    }
+    .section_profile_user .area_profile_user .area_card_inputs .area_form_right .row {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    /* global */
+    .left_side_template {
+        width: 100vw;
+    }
+    .left_side_template .area_top_template .btn_close_sidebar i {
+        display: block;
+    }
 }

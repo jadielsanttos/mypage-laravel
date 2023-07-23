@@ -407,7 +407,7 @@ class AdminController extends Controller
         $newPage->op_description = $fields['op_description'];
         $newPage->save();
 
-        return redirect('/admin');
+        return redirect('/admin/pages');
     }
 
     public function editPage($slug, $pageID) {

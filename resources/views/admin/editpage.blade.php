@@ -18,7 +18,7 @@
                 <div class="area_first_session">
                     <div class="area_upload_img">
                         <div class="area_img">
-                            <img src="{{url('storage/'.$page->op_profile_image)}}" alt="Imagem">
+                            <img src="{{$page->op_profile_image === 'default.png' ? '/media/default.png' : url('storage/'.$page->op_profile_image)}}" alt="Imagem">
                             <label>
                                 Alterar foto
                                 <input type="file" class="input_file" name="op_profile_image">

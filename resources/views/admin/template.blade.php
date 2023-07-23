@@ -14,6 +14,7 @@
     <div class="left_side_template">
         <div class="area_top_template">
             <a href="{{url('/admin')}}"><img src="{{url('assets/images/MyPage.png')}}" alt="Logo"></a>
+            <div class="btn_close_sidebar"><i class="fa-solid fa-xmark"></i></div>
         </div>
 
         <div class="area_links_template">

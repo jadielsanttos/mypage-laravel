@@ -10,6 +10,7 @@
         <div class="area_form">
             <div class="form_add_page">
                 <form method="post">
+                    @csrf
                     <label for="Nome da página">Nome da página</label>
                     <input type="text" name="slug" placeholder="O que vai ficar na URL...">
 

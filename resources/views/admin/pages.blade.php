@@ -26,7 +26,7 @@
                             <tr>
                                 <td>
                                     <a href="{{url('/'.$page->slug)}}" target="_blank">
-                                        <img src="{{url('storage/'.$page->op_profile_image)}}" alt="Imagem da página">
+                                        <img src="{{$page->op_profile_image === 'default.png' ? url('media/default.png') : url('storage/'.$page->op_profile_image)}}" alt="Imagem da página">
                                     </a>
                                     <span>{{$page->op_title}}</span>
                                 </td>

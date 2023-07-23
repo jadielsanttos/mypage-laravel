@@ -13,7 +13,7 @@
                 <div class="area_card_inputs">
                     <div class="area_form_left">
                         <div class="area_img">
-                            <img src="{{url('/storage/'.$user->profile_img)}}" alt="Imagem de perfil">
+                            <img src="{{$user->profile_img === null ? url('/media/default.png') : url('/storage/'.$user->profile_img)}}" alt="Imagem de perfil">
                             <label>
                                 Alterar foto
                                 <input type="file" name="profileImgEdit">
