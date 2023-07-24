@@ -5,9 +5,12 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 html, body {
     width: 100%;
+    min-height: 100vh;
 }
+
 .main {
     width: 100%;
     max-width: 400px;
@@ -18,35 +21,56 @@ html, body {
     flex-direction: column;
     margin-top: 80px;
 }
+
 .main .area_profile_image .profile_img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
 }
-.main .area_description,
+
 .main .area_title {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
+
+.main .area_description {
+    margin-bottom: 20px;
+}
+
+
 .main .area_links {
-    width: 300px;
+    max-width: 400px;
+    width: 100%;
 }
+
 .main .area_links a {
     display: block;
     text-decoration: none;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     padding: 10px;
     transition: all ease .3s;
 }
+
 .main .area_links a:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
+
 .main .area_links a.link_rounded {
     border-radius: 50px;
 }
+
 .main .area_links a.link_square {
     border-radius: 0;
 }
-.main .area_copy {
-    margin-top: 20px;
+
+.main .area_copy span {
+    display: block;
+    margin-top: 40px;
+    font-size: 15px;
+}
+
+@media (max-width: 425px) {
+    .main {
+        padding: 0 20px;
+    }
 }
