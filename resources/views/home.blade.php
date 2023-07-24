@@ -14,7 +14,7 @@
     <header class="section_header">
         <div class="area_header">
             <div class="area_logo">
-                <a href=""><img src="{{url('assets/images/MyPage.png')}}" alt=""></a>
+                <a href="/"><img src="{{url('assets/images/MyPage.png')}}" alt="logo"></a>
             </div>
             <div class="area_menu_desktop">
                 <nav>
@@ -41,11 +41,11 @@
         <div class="area_banner">
             <div class="area_banner_left_side">
                 <div class="title"><h1>Crie sua conta e tenha agora mesmo sua página de links personalizável</h1></div>
-                <div class="btn_cta"><a href="{{url('/admin/register')}}">Começar</a></div>
+                <div class="area_btn_cta"><a href="{{url('/admin/login')}}">Começar</a></div>
             </div>
             <div class="area_banner_right_side">
                 <div class="area_img">
-                    <img src="{{url('assets/images/celulares.png')}}" alt="">
+                    <img src="{{url('assets/images/tablets.png')}}" alt="Tablets">
                 </div>
             </div>
         </div>
@@ -55,13 +55,20 @@
         <div class="area_container">
             <div class="left_side">
                 <div class="area_img">
-                    <img class="img_desktop" src="{{url('assets/images/painel-mylinks.png')}}" alt="">
-                    <img class="img_mobile" src="{{url('assets/images/2023-03-08.png')}}" alt="">
+                    <img class="img_desktop" src="{{url('assets/images/painel_mypage.png')}}" alt="Foto-painel">
                 </div>
             </div>
             <div class="right_side">
                 <div class="content_right_side">
-                    <h2>Gerencie seus links <br>de forma <strong>simples</strong> e <strong>intuitiva</strong> em um painel fácil de usar</h2>
+                    <div class="title">
+                        <h2>Gerencie seus links</h2>
+                    </div>
+                    <div class="description">
+                        <p>Tenha controle de tudo em um só lugar. Cores, posições  e estatísticas.</p>
+                    </div>
+                    <div class="area_btn_cta">
+                        <a class="btn_cta" href="{{url('/admin/register')}}">Criar conta</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,37 +78,20 @@
         <div class="area_section_stats">
             <div class="area_left_side">
                 <div class="content_left_side">
-                    <h2>Veja as estatísticas da sua página em tempo real</h2>
-                    <p><i class="fa-solid fa-check"></i> Visualizações</p>
-                    <p><i class="fa-solid fa-check"></i> Total de cliques</p>
-                    <h3>Tudo em um só lugar</h3>
+                    <div class="title">
+                        <h2>Veja as estatísticas em tempo real</h2>
+                    </div>
+                    <div class="description">
+                        <p>Saiba se sua página está engajada, quantas visitas nas últimas horas, total de cliques, e muito mais...</p>
+                    </div>
+                    <div class="area_btn_cta">
+                        <a class="btn_cta" href="{{url('/admin/register')}}">Criar página</a>
+                    </div>
                 </div>
             </div>
             <div class="area_right_side">
                 <div class="area_img">
-                    <img src="{{url('assets/images/celular-stats.png')}}" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section_single">
-        <div class="area_section_single">
-            <div class="box_left_side_itens">
-                <div class="box_item">
-                    <img src="{{url('assets/images/yt_1200.png')}}" alt="">
-                </div>
-                <div class="box_item">
-                    <img src="{{url('assets/images/tiktok-logo.jpg')}}" alt="">
-                </div>
-                <div class="box_item">
-                    <img src="{{url('assets/images/whatsapp.png')}}" alt="">
-                </div>
-            </div>
-
-            <div class="right_side_content">
-                <div class="area_content_text">
-                    <h2>Atraia as pessoas a seus canais digitais mais importantes</h2>
+                    <img src="{{url('assets/images/stats.png')}}" alt="Estatísticas">
                 </div>
             </div>
         </div>
@@ -114,16 +104,9 @@
             </div>
 
             <div class="footer_right">
-                <div class="navigation">
-                    <ul>
-                        <li><a href="{{url('/admin/login')}}">Entrar</a></li>
-                        <li><a href="{{url('/admin/register')}}">Criar conta</a></li>
-                        <li><a href="">Contato</a></li>
-                    </ul>
+                <div class="area_copy">
+                    <p>MyPage 2023 - &copy; Todos os direitos reservados</p>
                 </div>
-            </div>
-            <div class="area_copy">
-                <p><strong>MyPage</strong> 2023 - &copy; Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
