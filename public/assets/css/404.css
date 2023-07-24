@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Poppins&family=Roboto&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container_404_not_found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container_404_not_found .title_error h1 {
+    font-size: 80px;
+    font-weight: 400;
+    color: #21910a;
+}
+
+
+.container_404_not_found .info h3 {
+    color: #333;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+.container_404_not_found .area_link_back a {
+    width: 100px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #21910a;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 17px;
+    margin-top: 20px;
+    transition: .3s;
+}
+
+.container_404_not_found .area_link_back a:hover {
+    background-color: #177405;
+}

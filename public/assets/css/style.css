@@ -355,7 +355,7 @@ html, body {
         line-height: 40px;
     }
     .section_footer .area_copy {
-        margin-top: 20px;
+        margin-bottom: 50px;
     }
 }
 
@@ -395,13 +395,36 @@ html, body {
     .section_footer .area_footer {
         justify-content: center;
     }
-    .section_footer .area_copy {
-        margin-top: 0;
-        margin-bottom: 50px;
-    }
     .section_footer .area_copy p {
         font-size: 15px;
         text-align: center;
+    }
+}
+
+@media (max-width: 375px) {
+    .section_stats .area_section_stats .area_right_side .area_img img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 320px) {
+    .section_panel .area_container .left_side .area_img {
+        margin-bottom: 0;
+        height: 150px;
+    }
+    .section_panel .area_container .right_side .content_right_side .title h2 {
+        font-size: 25px;
+    }
+    .section_panel .area_container .right_side .content_right_side .description p {
+        font-size: 15px;
+    }
+    .section_stats .area_section_stats .area_left_side .content_left_side .title h2 {
+        line-height: 35px;
+        font-size: 25px;
+    }
+    .section_stats .area_section_stats .area_left_side .content_left_side .description p {
+        font-size: 15px;
     }
 }
 

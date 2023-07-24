@@ -1,6 +1,6 @@
 @extends('admin.template')
 
-@section('title', 'MyPage - Home')
+@section('title', 'MyPage - Dashboard')
 
 @section('content')
     <div class="section_home">
