@@ -231,6 +231,58 @@ body {
     object-fit: cover;
 }
 
+.section_home .area_updated_items .area_list {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px 10px 0 0;
+    border: var(--border-default);
+    border-bottom-color: transparent;
+}
+
+.section_home .area_updated_items .area_list .area_list_top .left {
+    width: 100%;
+}
+
+.section_home .area_updated_items .area_list .area_list_top .mid {
+    width: 100%;
+}
+
+.section_home .area_updated_items .area_list .area_list_top .right {
+    width: 20%;
+}
+
+.section_home .area_updated_items .area_list .area_list_top,
+.section_home .area_updated_items .area_list .list_item a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: var(--border-default);
+    text-decoration: none;
+    color: var(--text-color-primary);
+}
+
+.section_home .area_updated_items .area_list .list_item a .left_content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.section_home .area_updated_items .area_list .list_item a .left_content .page_img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.section_home .area_updated_items .area_list .list_item a .mid_content {
+    width: 100%;
+}
+
+.section_home .area_updated_items .area_list .list_item a .right_content {
+    width: 20%;
+}
+
 /* css section page list */
 .section_pages_list .area_title .area_btn_add_page a i {
     margin-right: 10px;

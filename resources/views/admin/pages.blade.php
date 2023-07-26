@@ -30,7 +30,7 @@
                                     </a>
                                     <span>{{$page->op_title}}</span>
                                 </td>
-                                <td>2 minutos atrás...</td>
+                                <td>{{$page->updated_at !== null ? date('H:i:s', strtotime($page->updated_at)) : '---'}}</td>
                                 <td data-id="{{$page->id}}"><div class="area_toggle_icon"><i class="fa-solid fa-ellipsis-vertical"></i></div></td>
                                 <td data-id="{{$page->id}}" class="single_td">
                                     <div class="content_modal">

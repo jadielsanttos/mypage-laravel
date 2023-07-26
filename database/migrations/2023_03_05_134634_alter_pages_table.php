@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('pages', function(Blueprint $table){
             $table->string('op_profile_image')->default('default.png')->change();
+            $table->timestamps();
         });
     }
 
@@ -25,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('pages', function(Blueprint $table){
+            $table->dropColumn('created_at');
+            $table->dropColumn('updated_at');
+        });
     }
 };

@@ -12,6 +12,7 @@ use App\Models\Page;
 use App\Models\Link;
 use App\Models\View;
 use App\Models\Click;
+use DateTime;
 
 class AdminController extends Controller
 {
@@ -86,8 +87,49 @@ class AdminController extends Controller
     public function index() {
         $user = Auth::user();
 
+        $newList = [
+            'list' => []
+        ];
+
+        $pages = Page::where('id_user', $user->id)
+            ->orderby('updated_at', 'DESC')
+            ->get();
+
+        foreach($pages as $page) {
+            $originalTime = $page->updated_at;
+            $targetTime = New DateTime('now');
+
+            if($page->updated_at !== null) {
+                $interval = $originalTime->diff($targetTime);
+
+                $intervalValidate = '';
+
+                if($interval->format('%a') > '0') {
+                    $intervalValidate = $interval->format('%a').'d atrás';
+                }else if($interval->format('%h') > '0') {
+                    $intervalValidate = $interval->format('%h').'h atrás';
+                }else if($interval->format('%i') > '0') {
+                    $intervalValidate = $interval->format('%i').'m atrás';
+                }else {
+                    $intervalValidate = 'agora mesmo';
+                }
+
+                $listItem = [
+                    'id' => $page->id,
+                    'slug' => $page->slug,
+                    'img' => $page->op_profile_image,
+                    'title' => $page->op_title,
+                    'description' => $page->op_description,
+                    'timeMsg' => $intervalValidate
+                ];
+
+                array_push($newList['list'], $listItem);
+            }
+        }
+
         return view('admin.index',[
             'user' => $user,
+            'newList' => $newList,
             'activeMenu' => 'home'
         ]);
     }
@@ -103,7 +145,6 @@ class AdminController extends Controller
         }else {
             return redirect('/admin');
         }
-
     }
 
     public function profileUserEditAction($userID, Request $request) {
@@ -469,11 +510,10 @@ class AdminController extends Controller
             $page->op_title = $fields['title_page'];
             $page->op_description = $fields['description_page'];
             $page->save();
-
-            return redirect('/admin/'.$page->slug.'/editpage/'.$page->id);
-        }else {
-            return redirect('/admin');
         }
+
+        return redirect('/admin');
+
     }
 
     public function delPage($slug, $pageID) {
