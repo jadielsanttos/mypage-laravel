@@ -84,7 +84,7 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
-    public function index() {
+    public function verifyDateDifference() {
         $user = Auth::user();
 
         $newList = [
@@ -127,17 +127,25 @@ class AdminController extends Controller
             }
         }
 
+        return $newList['list'];
+    }
+
+    public function index() {
+        $user = Auth::user();
+
+        $dataList = $this->verifyDateDifference();
+
         return view('admin.index',[
             'user' => $user,
-            'newList' => $newList,
+            'dataList' => $dataList,
             'activeMenu' => 'home'
         ]);
     }
 
-    public function profileUser($userID) {
+    public function profileUser($userId) {
         $user = Auth::user();
 
-        if($userID == $user->id) {
+        if($userId == $user->id) {
             return view('admin.profile', [
                 'user' => $user,
                 'activeMenu' => 'profile'

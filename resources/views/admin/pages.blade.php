@@ -17,7 +17,7 @@
                     <thead>
                         <tr>
                             <th>Título</th>
-                            <th>Editado</th>
+                            <th>Criada em</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -30,7 +30,7 @@
                                     </a>
                                     <span>{{$page->op_title}}</span>
                                 </td>
-                                <td>{{$page->updated_at !== null ? date('H:i:s', strtotime($page->updated_at)) : '---'}}</td>
+                                <td>{{$page->created_at !== null ? date('d-m-Y', strtotime($page->created_at)) : '---'}}</td>
                                 <td data-id="{{$page->id}}"><div class="area_toggle_icon"><i class="fa-solid fa-ellipsis-vertical"></i></div></td>
                                 <td data-id="{{$page->id}}" class="single_td">
                                     <div class="content_modal">

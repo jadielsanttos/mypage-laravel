@@ -17,7 +17,6 @@
 }
 
 body {
-    display: flex;
     min-height: 100vh;
     background-color: var(--bg-default);
 }
@@ -141,7 +140,7 @@ body {
 }
 
 .container_single {
-    width: 100%;
+    width: calc(100% - 230px);
     margin-left: 230px;
 }
 
@@ -216,19 +215,69 @@ body {
 }
 
 /* css section page index(home) */
-.section_home .area_example_items {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 215px);
-    gap: 8px;
-    padding-bottom: 35px;
+.section_home .area_row {
+    position: relative;
+    margin-bottom: 35px;
 }
 
-.section_home .area_example_items .example_item img {
+.section_home .area_row .btn_prev,
+.section_home .area_row .btn_next {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: var(--border-default);
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.section_home .area_row .btn_prev {
+    left: -10px;
+}
+
+.section_home .area_row .btn_next {
+    right: -10px;
+}
+
+.section_home .area_row .btn_prev span i,
+.section_home .area_row .btn_next span i {
+    font-size: 15px;
+}
+
+.section_home .area_row .area_example_items {
+    overflow-x: hidden;
+}
+
+.section_home .area_row .area_example_items .area_example_list {
+    width: calc(220px * 12);
+    transition: all ease .5s;
+}
+
+.section_home .area_row .area_example_items .area_example_list .example_item {
+    display: inline-block;
     width: 215px;
+}
+
+.section_home .area_row .area_example_items .area_example_list .example_item img {
+    width: 100%;
     height: 300px;
+    transform: scale(0.9);
     border-radius: 10px;
     box-shadow: var(--box-shadow-default);
     object-fit: cover;
+    transition: all ease .3s;
+    cursor: pointer;
+}
+
+.section_home .area_row .area_example_items .area_example_list .example_item img:hover {
+    transform: scale(1);
 }
 
 .section_home .area_updated_items .area_list {
@@ -857,6 +906,7 @@ body {
         display: none;
     }
     .container_single {
+        width: 100%;
         margin-left: 0;
     }
 

@@ -10,6 +10,7 @@ window.onload = function() {
     window.addEventListener('resize', () => {
         if(window.innerWidth <= 600) {
             menu.style.display = 'none';
+            areaTotal.style.width = '100%';
             areaTotal.style.marginLeft = '0';
         }
     })
@@ -30,20 +31,24 @@ btnCloseSideBar.addEventListener('click', closeSideBar);
 function toggleSideBar() {
     if(menu.style.display === 'none') {
         menu.style.display = 'block';
+        areaTotal.style.width = 'calc(100% - 230px)';
         areaTotal.style.marginLeft = '230px';
     }else {
         menu.style.display = 'none';
+        areaTotal.style.width = '100%';
         areaTotal.style.marginLeft = '0';
     }
 }
 
 function openSideBarMobile() {
     menu.style.display = 'block';
+    areaTotal.style.width = '100%';
     areaTotal.style.marginLeft = '0';
 }
 
 function closeSideBar() {
     menu.style.display = 'none';
+    areaTotal.style.width = '100%';
     areaTotal.style.marginLeft = '0';
 }
 
@@ -68,6 +73,7 @@ function closeModalProfile() {
 function verifyWidthScreen() {
     if(window.innerWidth <= 768) {
         menu.style.display = 'none';
+        areaTotal.style.width = '100%';
         areaTotal.style.marginLeft = '0';
     }
 }
