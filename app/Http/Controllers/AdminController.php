@@ -27,6 +27,12 @@ class AdminController extends Controller
     }
 
     public function login(Request $request) {
+        $user = Auth::user();
+
+        if(!empty($user)) {
+            return redirect('/admin');
+        }
+
         return view('admin.login', [
             'error' => $request->session()->get('error')
         ]);
@@ -44,6 +50,12 @@ class AdminController extends Controller
     }
 
     public function register(Request $request) {
+        $user = Auth::user();
+
+        if(!empty($user)) {
+            return redirect('/admin');
+        }
+
         return view('admin.register', [
             'error' => $request->session()->get('error')
         ]);
