@@ -17,14 +17,10 @@
                     <div class="example_item"><img src="{{url('assets/images/admin/ex02.png')}}" alt="Exemplo-2"></div>
                     <div class="example_item"><img src="{{url('assets/images/admin/ex03.png')}}" alt="Exemplo-3"></div>
                     <div class="example_item"><img src="{{url('assets/images/admin/ex04.png')}}" alt="Exemplo-4"></div>
-                    <div class="example_item"><img src="{{url('assets/images/admin/ex01.png')}}" alt="Exemplo-5"></div>
-                    <div class="example_item"><img src="{{url('assets/images/admin/ex03.png')}}" alt="Exemplo-6"></div>
-                    <div class="example_item"><img src="{{url('assets/images/admin/ex02.png')}}" alt="Exemplo-7"></div>
-                    <div class="example_item"><img src="{{url('assets/images/admin/ex01.png')}}" alt="Exemplo-8"></div>
-                    <div class="example_item"><img src="{{url('assets/images/admin/ex04.png')}}" alt="Exemplo-9"></div>
-                    <div class="example_item"><img src="{{url('assets/images/admin/ex03.png')}}" alt="Exemplo-10"></div>
-                    <div class="example_item"><img src="{{url('assets/images/admin/ex01.png')}}" alt="Exemplo-11"></div>
-                    <div class="example_item"><img src="{{url('assets/images/admin/ex02.png')}}" alt="Exemplo-12"></div>
+                    <div class="example_item"><img src="{{url('assets/images/admin/ex05.png')}}" alt="Exemplo-5"></div>
+                    <div class="example_item"><img src="{{url('assets/images/admin/ex06.png')}}" alt="Exemplo-6"></div>
+                    <div class="example_item"><img src="{{url('assets/images/admin/ex07.png')}}" alt="Exemplo-7"></div>
+                    <div class="example_item"><img src="{{url('assets/images/admin/ex08.png')}}" alt="Exemplo-8"></div>
                 </div>
             </div>
         </div>

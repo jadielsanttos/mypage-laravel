@@ -379,7 +379,7 @@ class AdminController extends Controller
                 $link->op_border_type = $fields['op_border_type'];
                 $link->save();
 
-                return redirect('/admin/'.$page->slug.'/newlink');
+                return redirect('/admin/'.$page->slug.'/links');
 
             }
         }
@@ -442,6 +442,7 @@ class AdminController extends Controller
 
     public function addPageAction(Request $request) {
         $user = Auth::user();
+        $pages = Page::where('slug', strtolower($request['slug']))->first();
 
         $fields = $request->validate([
             'slug' => ['required'],
@@ -449,12 +450,14 @@ class AdminController extends Controller
             'op_description' => ['required']
         ]);
 
-        $newPage = new Page();
-        $newPage->id_user = $user->id;
-        $newPage->slug = strtolower($fields['slug']);
-        $newPage->op_title = $fields['op_title'];
-        $newPage->op_description = $fields['op_description'];
-        $newPage->save();
+        if(empty($pages)) {
+            $newPage = new Page();
+            $newPage->id_user = $user->id;
+            $newPage->slug = strtolower($fields['slug']);
+            $newPage->op_title = $fields['op_title'];
+            $newPage->op_description = $fields['op_description'];
+            $newPage->save();
+        }
 
         return redirect('/admin/pages');
     }

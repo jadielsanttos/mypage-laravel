@@ -69,6 +69,7 @@ body {
 
 /* css template */
 .left_side_template {
+    display: block;
     position: fixed;
     z-index: 99;
     width: 230px;
@@ -225,7 +226,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-    z-index: 1000;
+    z-index: 98;
     width: 30px;
     height: 30px;
     padding: 5px;
@@ -256,7 +257,7 @@ body {
 }
 
 .section_home .area_row .area_example_items .area_example_list {
-    width: calc(220px * 12);
+    width: calc(220px * 8);
     transition: all ease .5s;
 }
 
