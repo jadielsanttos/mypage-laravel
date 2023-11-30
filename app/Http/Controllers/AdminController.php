@@ -7,11 +7,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
-use App\Models\User;
 use App\Models\Page;
 use App\Models\Link;
 use App\Models\View;
 use App\Models\Click;
+
+use App\repositories\UserRepository;
+use App\repositories\PageRepository;
+
 use DateTime;
 
 class AdminController extends Controller
@@ -40,9 +43,7 @@ class AdminController extends Controller
             'list' => []
         ];
 
-        $pages = Page::where('id_user', $user->id)
-            ->orderby('updated_at', 'DESC')
-            ->get();
+        $pages = PageRepository::getAllPagesOrderByUpdatedAt($user->id);
 
         foreach($pages as $page) {
             $originalTime = $page->updated_at;
@@ -96,7 +97,7 @@ class AdminController extends Controller
         $user = Auth::user();
 
         if($user->id == $userID) {
-            $userEdit = User::where('id', $userID)->first();
+            $userEdit = UserRepository::findByID($userID);
 
             if($request->hasFile('profileImgEdit')) {
                 if($userEdit->profile_img != null) {
@@ -125,9 +126,7 @@ class AdminController extends Controller
 
     public function pageLinks($slug) {
         $user = Auth::user();
-        $page = Page::where('slug', $slug)
-            ->where('id_user', $user->id)
-            ->first();
+        $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
         if($page) {
             $links = Link::where('id_page', $page->id)
@@ -150,13 +149,10 @@ class AdminController extends Controller
     public function linkOrderUpdate($linkid, $pos) {
         $user = Auth::user();
 
-        // 1 - verificar se o link pertence a uma página do usuário logado
-
-        // 2 - lógica para trocar ORDER no banco de dados
-
+        // Verificar se o link pertence a uma página do usuário logado
         $link = Link::find($linkid);
         $myPages = [];
-        $myPagesQuery = Page::where('id_user', $user->id)->get();
+        $myPagesQuery = PageRepository::getAllPagesByUser($user->id);
         foreach($myPagesQuery as $pageItem) {
             $myPages[] = $pageItem->id;
         }
@@ -207,19 +203,15 @@ class AdminController extends Controller
 
     public function newlink($slug) {
         $user = Auth::user();
-        $page = Page::where('id_user', $user->id)
-            ->where('slug', $slug)
-            ->first();
+        $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
         if($page) {
-
             return view('admin.editlink',[
                 'menu' => 'links',
                 'page' => $page,
                 'user' => $user,
                 'activeMenu' => 'links'
             ]);
-
         }else {
             return redirect('/admin');
         }
@@ -227,9 +219,7 @@ class AdminController extends Controller
 
     public function newLinkAction($slug, Request $request) {
         $user = Auth::user();
-        $page = Page::where('id_user', $user->id)
-            ->where('slug', $slug)
-            ->first();
+        $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
             if($page) {
 
@@ -264,9 +254,7 @@ class AdminController extends Controller
 
     public function editLink($slug, $linkID) {
         $user = Auth::user();
-        $page = Page::where('id_user', $user->id)
-            ->where('slug', $slug)
-            ->first();
+        $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
         if($page) {
             $link = Link::where('id_page', $page->id)
@@ -288,9 +276,7 @@ class AdminController extends Controller
 
     public function editLinkAction($slug, $linkID, Request $request) {
         $user = Auth::user();
-        $page = Page::where('id_user', $user->id)
-            ->where('slug', $slug)
-            ->first();
+        $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
         if($page) {
             $link = Link::where('id_page', $page->id)
@@ -326,9 +312,7 @@ class AdminController extends Controller
 
     public function delLink($slug, $linkID) {
         $user = Auth::user();
-        $page = Page::where('id_user', $user->id)
-            ->where('slug', $slug)
-            ->first();
+        $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
         if($page) {
             $link = Link::where('id_page', $page->id)
@@ -357,9 +341,7 @@ class AdminController extends Controller
     public function getPages() {
         $user = Auth::user();
 
-        $pages = Page::where('id_user', $user->id)
-            ->orderby('id', 'DESC')
-            ->get();
+        $pages = PageRepository::getAllPagesOrderById($user->id);
 
         return view('admin.pages',[
             'user' => $user,
@@ -379,7 +361,7 @@ class AdminController extends Controller
 
     public function addPageAction(Request $request) {
         $user = Auth::user();
-        $pages = Page::where('slug', strtolower($request['slug']))->first();
+        $page = PageRepository::getPageBySlug($request['slug']);
 
         $fields = $request->validate([
             'slug' => ['required'],
@@ -387,7 +369,7 @@ class AdminController extends Controller
             'op_description' => ['required']
         ]);
 
-        if(empty($pages)) {
+        if($page == null) {
             $newPage = new Page();
             $newPage->id_user = $user->id;
             $newPage->slug = strtolower($fields['slug']);
@@ -401,10 +383,7 @@ class AdminController extends Controller
 
     public function editPage($slug, $pageID) {
         $user = Auth::user();
-        $page = Page::where('slug', $slug)
-            ->where('id', $pageID)
-            ->where('id_user', $user->id)
-            ->first();
+        $page = PageRepository::getPageBySlugByIdByUser($slug, $pageID, $user->id);
 
         if($page) {
             $colors = explode(',', $page->op_bg_value);
@@ -423,10 +402,7 @@ class AdminController extends Controller
 
     public function editPageAction($slug, $pageID, Request $request) {
         $user = Auth::user();
-        $page = Page::where('slug', $slug)
-            ->where('id', $pageID)
-            ->where('id_user', $user->id)
-            ->first();
+        $page = PageRepository::getPageBySlugByIdByUser($slug, $pageID, $user->id);
 
         if($page) {
             //Validando os campos
@@ -466,26 +442,18 @@ class AdminController extends Controller
 
     public function delPage($slug, $pageID) {
         $user = Auth::user();
-        $page = Page::where('id_user', $user->id)
-            ->where('slug', $slug)
-            ->where('id', $pageID)
-            ->first();
+        $page = PageRepository::getPageBySlugByIdByUser($slug, $pageID, $user->id);
 
         if($page) {
             $page->delete();
-            return redirect('/admin/pages');
-        }else {
-            echo "<script>alert('Algo deu errado')</script>";
-            echo "<script>window.location.href = '/admin/pages'</script>";
         }
+
+        return redirect('/admin/pages');
     }
 
-    // página de estatísticas geral(página e links)
     public function pageStats($slug) {
         $user = Auth::user();
-        $page = Page::where('slug', $slug)
-            ->where('id_user', $user->id)
-            ->first();
+        $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
         if($page) {
             // puxando as views da página
@@ -511,7 +479,5 @@ class AdminController extends Controller
         }else {
             return redirect('/admin');
         }
-
     }
-
 }
