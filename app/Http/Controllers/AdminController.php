@@ -18,82 +18,19 @@ class AdminController extends Controller
 {
 
     public function __construct() {
-        $this->middleware('auth', ['except'=>[
-            'login',
-            'register',
-            'loginAction',
-            'registerAction'
-        ]]);
+        $this->middleware('auth');
     }
 
-    public function login(Request $request) {
+    public function index() {
         $user = Auth::user();
 
-        if(!empty($user)) {
-            return redirect('/admin');
-        }
+        $dataList = $this->verifyDateDifference();
 
-        return view('admin.login', [
-            'error' => $request->session()->get('error')
+        return view('admin.index',[
+            'user' => $user,
+            'dataList' => $dataList,
+            'activeMenu' => 'home'
         ]);
-    }
-
-    public function loginAction(Request $request) {
-        $creds = $request->only('email', 'password');
-
-        if(Auth::attempt($creds)) {
-            return redirect('/admin');
-        }else {
-            $request->session()->flash('error', 'Dados incorretos');
-            return redirect('/admin/login');
-        }
-    }
-
-    public function register(Request $request) {
-        $user = Auth::user();
-
-        if(!empty($user)) {
-            return redirect('/admin');
-        }
-
-        return view('admin.register', [
-            'error' => $request->session()->get('error')
-        ]);
-    }
-
-    public function registerAction(Request $request) {
-        $creds = $request->only('name', 'email', 'password');
-
-        $hasEmail = User::where('email', $creds['email'])->count();
-
-        if($creds['name'] && $creds['email'] && $creds['password']) {
-
-            if($hasEmail === 0) {
-
-                $newUser = new User();
-                $newUser->name = $creds['name'];
-                $newUser->email = $creds['email'];
-                $newUser->password = password_hash($creds['password'], PASSWORD_DEFAULT);
-                $newUser->save();
-
-                Auth::login($newUser);
-                return redirect('/admin');
-
-            }else {
-                $request->session()->flash('error', 'Já existe um usuário com este email');
-                return redirect('/admin/register');
-            }
-
-        }else {
-            $request->session()->flash('error', 'Preencha todos os campos');
-            return redirect('/admin/register');
-        }
-
-    }
-
-    public function logout() {
-        Auth::logout();
-        return redirect('/admin');
     }
 
     public function verifyDateDifference() {
@@ -140,18 +77,6 @@ class AdminController extends Controller
         }
 
         return $newList['list'];
-    }
-
-    public function index() {
-        $user = Auth::user();
-
-        $dataList = $this->verifyDateDifference();
-
-        return view('admin.index',[
-            'user' => $user,
-            'dataList' => $dataList,
-            'activeMenu' => 'home'
-        ]);
     }
 
     public function profileUser($userId) {

@@ -1,38 +1,40 @@
-# Nomer as rotas para facilitar(ok)
+# Nomer as rotas para facilitar (ok)
 
 # Criar funcionalidade de registro de click
-    1 - Criar uma rota para receber a requisição(ok)
-    2 - Fazer a requisição(ok)
-    3 - Receber os dados(ok)
-    4 - Mandar para o banco(ok)
-    5 - Melhorar a forma de incrementação de um novo registro(ok)
+    1 - Criar uma rota para receber a requisição (ok)
+    2 - Fazer a requisição (ok)
+    3 - Receber os dados (ok)
+    4 - Mandar para o banco (ok)
+    5 - Melhorar a forma de incrementação de um novo registro (ok)
 
-# Fazer upload de imagens(ok)
-# Adicionado dependência doctrine/dbal(ok)
-# Alterar valor padrão da coluna `op_profile_image` da tabela Pages(ok)
-# Renomear a coluna link_date para click_date da tabela de clicks(ok)
+# Fazer upload de imagens (ok)
+# Adicionado dependência doctrine/dbal (ok)
+# Alterar valor padrão da coluna `op_profile_image` da tabela Pages (ok)
+# Renomear a coluna link_date para click_date da tabela de clicks (ok)
 
 # Fazer melhoria no update de imagens
-    1 - Deletar a imagem atual(ok)
-    2 - Salvar a nova(ok)
+    1 - Deletar a imagem atual (ok)
+    2 - Salvar a nova (ok)
 
 # Melhorar o frontend da aplicação
-    1 - melhorar visual da página(ok)
-    2 - melhorar o visual do painel(ok)
-    3 - deixar o painel responsivo(ok)
+    1 - melhorar visual da página (ok)
+    2 - melhorar o visual do painel (ok)
+    3 - deixar o painel responsivo (ok)
 
 # Adicionar página de perfil do usuário
-    1 - criar rota(ok)
-    2 - puxar os dados(ok)
-    3 - fazer a edição(ok)
-    4 - fazer upload de arquivo(imagem de perfil)(ok)
+    1 - criar rota (ok)
+    2 - puxar os dados (ok)
+    3 - fazer a edição (ok)
+    4 - fazer upload de arquivo(imagem de perfil) (ok)
 
 # Fazer layout da página home
-    1 - desktop(ok)
-    2 - mobile(ok)
+    1 - desktop (ok)
+    2 - mobile (ok)
 
-# Melhorar telas de login e cadastro(ok)
+# Melhorar telas de login e cadastro (ok)
 
-# Fazer validação em todos os formulários(ok)
+# Fazer validação em todos os formulários (ok)
 
-# Criar funcionalidade de compartilhamento
+# Melhorar a arquitetura da aplicação
+    1 - Criar um controller só para autenticação (ok)
+    2 - Adicionar o patter repositorie

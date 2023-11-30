@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
@@ -8,14 +9,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::prefix('/auth')->group(function(){
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'loginAction'])->name('Login.Action');
+
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/register', [AuthController::class, 'registerAction'])->name('register.Action');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
 Route::prefix('/admin')->group(function(){
-    Route::get('/login', [AdminController::class, 'login'])->name('login');
-    Route::post('/login', [AdminController::class, 'loginAction'])->name('Login.Action');
-
-    Route::get('/register', [AdminController::class, 'register'])->name('register');
-    Route::post('/register', [AdminController::class, 'registerAction'])->name('register.Action');
-    Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
-
     Route::get('/', [AdminController::class, 'index'])->name('home.admin');
 
     Route::get('/profile/{userid}', [AdminController::class, 'profileUser'])->name('profile.user');

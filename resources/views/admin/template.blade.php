@@ -62,7 +62,7 @@
                     <div class="arrow_up"></div>
                     <div class="area_links_popup">
                         <a href="{{url('/admin/profile/'.$user->id)}}"><i class="fa-regular fa-user"></i> Meu perfil</a>
-                        <a href="{{url('/admin/logout')}}"><i class="fa-solid fa-power-off"></i> Sair</a>
+                        <a href="{{url('/auth/logout')}}"><i class="fa-solid fa-power-off"></i> Sair</a>
                     </div>
                 </div>
             </div>

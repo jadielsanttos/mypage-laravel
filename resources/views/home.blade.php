@@ -18,8 +18,8 @@
             </div>
             <div class="area_menu_desktop">
                 <nav>
-                    <a href="{{url('/admin/login')}}">Entrar</a>
-                    <a href="{{url('/admin/register')}}" class="btn_register">Começar grátis</a>
+                    <a href="{{url('/auth/login')}}">Entrar</a>
+                    <a href="{{url('/auth/register')}}" class="btn_register">Começar grátis</a>
                 </nav>
             </div>
             <div class="area_menu_mobile">
@@ -27,8 +27,8 @@
                     <span><i class="fa-solid fa-xmark"></i></span>
                 </div>
                 <nav>
-                    <a href="{{url('/admin/login')}}">Entrar</a>
-                    <a href="{{url('/admin/register')}}" class="btn_register">Começar grátis</a>
+                    <a href="{{url('/auth/login')}}">Entrar</a>
+                    <a href="{{url('/auth/register')}}" class="btn_register">Começar grátis</a>
                 </nav>
             </div>
             <div class="btn_toggle_menu_mobile">
@@ -41,7 +41,7 @@
         <div class="area_banner">
             <div class="area_banner_left_side">
                 <div class="title"><h1>Crie sua conta e tenha agora mesmo sua página de links personalizável</h1></div>
-                <div class="area_btn_cta"><a href="{{url('/admin/login')}}">Começar</a></div>
+                <div class="area_btn_cta"><a href="{{url('/auth/login')}}">Começar</a></div>
             </div>
             <div class="area_banner_right_side">
                 <div class="area_img">
@@ -67,7 +67,7 @@
                         <p>Tenha controle de tudo em um só lugar. Cores, posições  e estatísticas.</p>
                     </div>
                     <div class="area_btn_cta">
-                        <a class="btn_cta" href="{{url('/admin/register')}}">Criar conta</a>
+                        <a class="btn_cta" href="{{url('/auth/register')}}">Criar conta</a>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                         <p>Saiba se sua página está engajada, quantas visitas nas últimas horas, total de cliques, e muito mais...</p>
                     </div>
                     <div class="area_btn_cta">
-                        <a class="btn_cta" href="{{url('/admin/register')}}">Criar página</a>
+                        <a class="btn_cta" href="{{url('/auth/register')}}">Criar página</a>
                     </div>
                 </div>
             </div>

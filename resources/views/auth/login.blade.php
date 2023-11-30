@@ -18,8 +18,10 @@
                 <h1>Login</h1>
                 <div class="border_underline"></div>
             </div>
-            @if ($error)
-                <div class="error_msg"><i class="fa-solid fa-circle-exclamation"></i> {{$error}}</div>
+            @if (session('error'))
+                <div class="error_msg">
+                    <i class="fa-solid fa-circle-exclamation"></i> {{session('error')}}
+                </div>
             @endif
             <div class="area_form">
                 <form method="post">
@@ -31,7 +33,7 @@
                     <input id="pass" type="password" name="password" placeholder="Digite sua senha"><span class="single_span"><i class="fa-solid fa-eye"></i></span>
 
                     <input type="submit" name="entrar" value="Entrar">
-                    <p>Ainda não tem conta? <a href="{{url('admin/register')}}">Cadastre-se</a></p>
+                    <p>Ainda não tem conta? <a href="{{url('auth/register')}}">Cadastre-se</a></p>
                 </form>
             </div>
         </div>
