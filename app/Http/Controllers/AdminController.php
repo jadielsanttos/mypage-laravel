@@ -9,11 +9,12 @@ use Illuminate\Validation\Rule;
 
 use App\Models\Page;
 use App\Models\Link;
-use App\Models\View;
-use App\Models\Click;
 
-use App\repositories\UserRepository;
-use App\repositories\PageRepository;
+use App\Repositories\ClickRepository;
+use App\Repositories\LinkRepository;
+use App\Repositories\UserRepository;
+use App\Repositories\PageRepository;
+use App\Repositories\ViewRepository;
 
 use DateTime;
 
@@ -129,9 +130,7 @@ class AdminController extends Controller
         $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
         if($page) {
-            $links = Link::where('id_page', $page->id)
-                ->orderBy('order', 'ASC')
-                ->get();
+            $links = LinkRepository::getAllLinksOrderByOrder($page->id);
 
             return view('admin.links',[
                 'menu' => 'links',
@@ -146,11 +145,11 @@ class AdminController extends Controller
 
     }
 
-    public function linkOrderUpdate($linkid, $pos) {
+    public function linkOrderUpdate($linkID, $position) {
         $user = Auth::user();
 
         // Verificar se o link pertence a uma página do usuário logado
-        $link = Link::find($linkid);
+        $link = LinkRepository::findById($linkID);
         $myPages = [];
         $myPagesQuery = PageRepository::getAllPagesByUser($user->id);
         foreach($myPagesQuery as $pageItem) {
@@ -159,23 +158,19 @@ class AdminController extends Controller
 
         if(in_array($link->id_page, $myPages)) {
 
-            if($link->order > $pos) {
+            if($link->order > $position) {
                 // item subiu
-                // jogou os próximos para baixo
-                $afterLinks = Link::where('id_page', $link->id_page)
-                    ->where('order', '>=', $pos)
-                    ->get();
+                // jogou os outros para baixo
+                $afterLinks = LinkRepository::getAfterLinks($link->id_page, $position);
 
                 foreach($afterLinks as $afterLink) {
                     $afterLink->order++;
                     $afterLink->save();
                 }
-            }else if($link->order < $pos) {
+            }else if($link->order < $position) {
                 // item desceu
-                // jogou os anteriores para cima
-                $beforeLinks = Link::where('id_page', $link->id_page)
-                    ->where('order', '<=', $pos)
-                    ->get();
+                // jogou os outros para cima
+                $beforeLinks = LinkRepository::getBeforeLinks($link->id_page, $position);
 
                 foreach($beforeLinks as $beforeLink) {
                     $beforeLink->order--;
@@ -184,13 +179,11 @@ class AdminController extends Controller
             }
 
             // Posicionando o item
-            $link->order = $pos;
+            $link->order = $position;
             $link->save();
 
             // Corrigindo as posições
-            $allLinks = Link::where('id_page', $link->id_page)
-                ->orderBy('order', 'ASC')
-                ->get();
+            $allLinks = LinkRepository::getAllLinksOrderByOrder($link->id_page);
             foreach($allLinks as $linkKey => $linkItem) {
                 $linkItem->order = $linkKey;
                 $linkItem->save();
@@ -222,7 +215,6 @@ class AdminController extends Controller
         $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
             if($page) {
-
                 $fields = $request->validate([
                     'status' => ['required', 'boolean'],
                     'title' => ['required', 'min: 2'],
@@ -232,7 +224,7 @@ class AdminController extends Controller
                     'op_border_type' => ['required', Rule::in('square', 'rounded')]
                 ]);
 
-                $totalLinks = Link::where('id_page', $page->id)->count();
+                $totalLinks = LinkRepository::getTotalLinksByPageId($page->id);
                 $newLink = new Link();
                 $newLink->id_page = $page->id;
                 $newLink->status = $fields['status'];
@@ -257,9 +249,7 @@ class AdminController extends Controller
         $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
         if($page) {
-            $link = Link::where('id_page', $page->id)
-                ->where('id', $linkID)
-                ->first();
+            $link = LinkRepository::getLinkByPageIdAndLinkId($page->id, $linkID);
 
             if($link) {
                 return view('admin.editlink',[
@@ -279,12 +269,9 @@ class AdminController extends Controller
         $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
         if($page) {
-            $link = Link::where('id_page', $page->id)
-                ->where('id', $linkID)
-                ->first();
+            $link = LinkRepository::getLinkByPageIdAndLinkId($page->id, $linkID);
 
             if($link) {
-
                 $fields = $request->validate([
                     'status' => ['required', 'boolean'],
                     'title' => ['required', 'min: 2'],
@@ -315,17 +302,13 @@ class AdminController extends Controller
         $page = PageRepository::getPageBySlugAndUser($slug, $user->id);
 
         if($page) {
-            $link = Link::where('id_page', $page->id)
-                ->where('id', $linkID)
-                ->first();
+            $link = LinkRepository::getLinkByPageIdAndLinkId($page->id, $linkID);
 
             if($link) {
                 $link->delete();
 
                 // Corrigindo as posições
-                $allLinks = Link::where('id_page', $link->id_page)
-                    ->orderBy('order', 'ASC')
-                    ->get();
+                $allLinks = LinkRepository::getAllLinksOrderByOrder($page->id);
                 foreach($allLinks as $linkKey => $linkItem) {
                     $linkItem->order = $linkKey;
                     $linkItem->save();
@@ -457,16 +440,14 @@ class AdminController extends Controller
 
         if($page) {
             // puxando as views da página
-            $views = View::where('id_page', $page->id)->sum('total');
+            $views = ViewRepository::getTotalViewsOfPage($page->id);
 
             // puxando os clicks nos links da página
-            $clicks = Click::where('id_page', $page->id)->sum('total');
+            $clicks = ClickRepository::getTotalClicksOfPage($page->id);
 
             // puxando as páginas que mais receberam acesso dentro de X período
             $dateLimit = date('Y-m-d H:i:s', strtotime('- 2880 minutes'));
-            $mostViews = View::where('view_date', '>', $dateLimit)
-                ->where('id_page', $page->id)
-                ->sum('total');
+            $mostViews = ViewRepository::getTotalViewsOfPageInTheLast48Hours($dateLimit, $page->id);
 
             return view('admin.stats',[
                 'page' => $page,

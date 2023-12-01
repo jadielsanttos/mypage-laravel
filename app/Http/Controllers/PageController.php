@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Click;
 use Illuminate\Http\Request;
-use App\Models\Page;
-use App\Models\Link;
-use App\Models\View;
+
+use App\Repositories\PageRepository;
+use App\Repositories\ClickRepository;
+use App\Repositories\LinkRepository;
+use App\Repositories\ViewRepository;
 
 class PageController extends Controller
 {
     public function index($slug) {
-
-        $page = Page::where('slug', $slug)->first();
+        // Verificando o slug da página
+        $page = PageRepository::getPageBySlug($slug);
 
         if($page) {
 
@@ -32,16 +33,11 @@ class PageController extends Controller
                 break;
             }
 
-            // links
-            $links = Link::where('id_page', $page->id)
-                    ->where('status', 1)
-                    ->orderBy('order')
-                    ->get();
+            // Pegando links
+            $links = LinkRepository::getAllLinksWithStatus1($page->id);
 
-            // registrar as views
-            $view = View::firstOrNew(
-                ['id_page' => $page->id, 'view_date' => date('Y-m-d')]
-            );
+            // Registrando view
+            $view = ViewRepository::firstOrNew($page->id);
             $view->total++;
             $view->save();
 
@@ -58,19 +54,16 @@ class PageController extends Controller
         }else {
             return view('notfound');
         }
-
     }
 
     public function addClick(Request $request) {
-        // verifico o slug da página
-        $page = Page::where('slug', $request->slug)->first();
+        // Verificando o slug da página
+        $page = PageRepository::getPageBySlug($request->slug);
 
-       if($page) {
-            $click = Click::firstOrNew(
-                ['id_link' => $request->id, 'id_page' => $page->id, 'click_date' => date('Y-m-d')]
-            );
+        if($page) {
+            $click = ClickRepository::firstOrNew($request->id, $page->id);
             $click->total++;
             $click->save();
-       }
+        }
     }
 }

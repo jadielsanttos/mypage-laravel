@@ -37,4 +37,4 @@
 
 # Melhorar a arquitetura da aplicação
     1 - Criar um controller só para autenticação (ok)
-    2 - Adicionar o patter repositorie
+    2 - Adicionar o patter repositorie (ok)

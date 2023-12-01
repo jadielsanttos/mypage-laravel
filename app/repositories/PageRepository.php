@@ -1,6 +1,6 @@
 <?php
 
-namespace App\repositories;
+namespace App\Repositories;
 
 use App\Models\Page;
 
@@ -36,9 +36,9 @@ class PageRepository
 
     public static function getPageBySlug(string $slug): object | null
     {
-        $pages = Page::where('slug', $slug)->first();
+        $page = Page::where('slug', $slug)->first();
 
-        return $pages;
+        return $page;
     }
 
     public static function getPageBySlugByIdByUser(string $slug, int $pageID, int $userID): object | null
